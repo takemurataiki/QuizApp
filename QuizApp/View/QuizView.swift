@@ -17,7 +17,7 @@ struct QuizView: View {
     @State var isActive: Bool = false
     
     //正誤判定画像
-    @State var judgeImageView = ""
+    @State var judgeImage = ""
     
     //ボタンをタップしたかどうか
     @State var btnTapp:Bool = false
@@ -33,17 +33,17 @@ struct QuizView: View {
             //スコアカウント
             quizVM.correctCount += 1
             //◯画像表示
-            judgeImageView = "correct"
+            judgeImage = "correct"
             print("正解")
         } else {
             //×画像表示
-            judgeImageView = "incorrect"
+            judgeImage = "incorrect"
             print("不正解")
         }
         
         //0.5秒後に非表示にする
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.judgeImageView = ""
+            self.judgeImage = ""
             btnTapp = false
             nextQuiz()
         }
@@ -72,86 +72,109 @@ struct QuizView: View {
             VStack {
                 
                 Text(quiz.quizNumberLabel)
-                    .padding(.vertical, 40.0)
+                    .padding(.vertical, 20.0)
                     
                 
                 
                 
                 ZStack {
                     Text(quiz.quizTextView).lineLimit(nil)
-                    Image(judgeImageView)
+                        
+                    
+                    
+                    Image(judgeImage)
+                        .frame(width:.infinity)
+                        
                         
                         
                     
-                }.frame(width: 350.0, height: 300.0)
+                }
+                .frame(width: .infinity, height: 300.0)
+                .padding(.vertical, 10.0)
                 
                 
+                Spacer()
                 
-                Button(action: {
-                    quiz.tag = 1
-                    btnAction()
-                    print("スコア：\(quizVM.correctCount)")
-                    }) {
-                        Text(quiz.answerButton1)
-                            .padding(.all, 30.0)
-                            .frame(width: 300.0)
+                VStack {
+                    Button(action: {
+                        quiz.tag = 1
+                        btnAction()
+                        print("スコア：\(quizVM.correctCount)")
+                        }) {
+                            Text(quiz.answerButton1)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .background(Color.white)
+                                .padding(.horizontal, 10.0)
+                        }
+                    .disabled(btnTapp)
+                    
+                    Spacer()
+                    Button(action: {
+                        quiz.tag = 2
+                        btnAction()
+                        print("スコア：\(quizVM.correctCount)")
+                        
+                    }, label: {
+                        Text(quiz.answerButton2)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color.white)
-                    }
-                .disabled(btnTapp)
-                
-                Button(action: {
-                    quiz.tag = 2
-                    btnAction()
-                    print("スコア：\(quizVM.correctCount)")
+                            .padding(.horizontal, 10.0)
                     
-                }, label: {
-                    Text(quiz.answerButton2)
-                        .padding(.all, 30.0)
-                        .frame(width: 300.0)
-                        .background(Color.white)
-                
-                })
-                .disabled(btnTapp)
-                
-                Button(action: {
-                    quiz.tag = 3
-                    btnAction()
-                    print("スコア：\(quizVM.correctCount)")
+                    })
+                    .disabled(btnTapp)
+                    Spacer()
+                    Button(action: {
+                        quiz.tag = 3
+                        btnAction()
+                        print("スコア：\(quizVM.correctCount)")
+                        
+                        
+                    }, label: {
+                        Text(quiz.answerButton3)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color.white)
+                            .padding(.horizontal, 10.0)
                     
+                    })
+                    .disabled(btnTapp)
+                    Spacer()
+                    Button(action: {
+                        quiz.tag = 4
+                        btnAction()
+                        print("スコア：\(quizVM.correctCount)")
+                        
+                        
+                    }, label: {
+                        Text(quiz.answerButton4)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color.white)
+                            .padding(.horizontal, 10.0)
+                            
                     
-                }, label: {
-                    Text(quiz.answerButton3)
-                        .padding(.all, 30.0)
-                        .frame(width: 300.0)
-                        .background(Color.white)
+                    })
+                    .disabled(btnTapp)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                })
-                .disabled(btnTapp)
                 
-                Button(action: {
-                    quiz.tag = 4
-                    btnAction()
-                    print("スコア：\(quizVM.correctCount)")
-                    
-                    
-                }, label: {
-                    Text(quiz.answerButton4)
-                        .padding(.all, 30.0)
-                        .frame(width: 300.0)
-                        .background(Color.white)
                 
-                })
-                .disabled(btnTapp)
                 
+                
+               
+                
+                Spacer()
+                
+                AdView().frame(width: 330, height: 50)
                 
                 NavigationLink(destination: ScoreView(isShow: self.$isShow), isActive: $isActive) {
                     EmptyView()
                 }
                 
-                
                
             }
             .onAppear(){
+                
+                quizVM.quizCount = 0
                 //問題データ入れ込み
 //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)")
                 quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1")
@@ -171,15 +194,13 @@ struct QuizView: View {
                 quiz.answerButton4 = quizVM.quizArray[5]
                 
                 print("選択したレベル\(quizVM.selectLevel)")
+                
+                
         }
         }
-        
-        
-
+        .navigationBarHidden(true) 
 
     }
-    
-    
 }
 
 struct QuizView_Previews: PreviewProvider {

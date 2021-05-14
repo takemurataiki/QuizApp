@@ -37,40 +37,47 @@ struct SelectLevelView: View {
                     
                     
                 Spacer()
-                Button(action: {
-                    selectTag = 1
-                   
-                    levelButtonAction()
-                }, label: {
-                    Text("初級")
-                        .padding(.all, 30.0)
-                        .frame(width: 300.0)
-                        .background(Color.white)
-                
-                })
-                Button(action: {
-                    selectTag = 2
+                VStack {
                     
-                    levelButtonAction()
+                    Button(action: {
+                        selectTag = 1
+                       
+                        levelButtonAction()
+                    }, label: {
+                        Text("初級")
+                            .padding(.all, 30.0)
+                            .frame(width: 300.0)
+                            .background(Color.white)
                     
-                }, label: {
-                    Text("中級")
-                        .padding(.all, 30.0)
-                        .frame(width: 300.0)
-                        .background(Color.white)
-                
-                })
-                Button(action: {
-                    selectTag = 3
-                
-                    levelButtonAction()
-                }, label: {
-                    Text("上級")
-                        .padding(.all, 30.0)
-                        .frame(width: 300.0)
-                        .background(Color.white)
-                
-                })
+                    })
+                    Spacer()
+                    Button(action: {
+                        selectTag = 2
+                        
+                        levelButtonAction()
+                        
+                    }, label: {
+                        Text("中級")
+                            .padding(.all, 30.0)
+                            .frame(width: 300.0)
+                            .background(Color.white)
+                    
+                    })
+                    Spacer()
+                    Button(action: {
+                        selectTag = 3
+                    
+                        levelButtonAction()
+                    }, label: {
+                        Text("上級")
+                            .padding(.all, 30.0)
+                            .frame(width: 300.0)
+                            .background(Color.white)
+                    
+                    })
+                }
+                .padding(.horizontal, 40.0)
+                .frame(height: 240.0)
                 Spacer()
                 AdView().frame(width: 330, height: 50)
                 
