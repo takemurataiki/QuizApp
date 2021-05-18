@@ -50,7 +50,7 @@
 	<string>ca-app-pub-3638997642143082~3102326742</string>
 	<key>GADIsAdManagerApp</key>
 	<string>true</string>
-	<key></key>
-	<string></string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

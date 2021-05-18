@@ -36,7 +36,7 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    AdView().frame(width: 330, height: 50)
+                    AdView().frame(width:.infinity, height: 50)
                 }
                 
                 

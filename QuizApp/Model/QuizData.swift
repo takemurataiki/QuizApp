@@ -30,5 +30,8 @@ struct  QuizData: Identifiable {
     //正解番号
     var judgeImageView: Int
     
+    //解説文
+    var explanation :String
+    
 
     }

@@ -50,7 +50,7 @@ struct SelectLevelView: View {
                             .background(Color.white)
                     
                     })
-                    Spacer()
+                    
                     Button(action: {
                         selectTag = 2
                         
@@ -63,7 +63,7 @@ struct SelectLevelView: View {
                             .background(Color.white)
                     
                     })
-                    Spacer()
+                    
                     Button(action: {
                         selectTag = 3
                     
@@ -77,9 +77,9 @@ struct SelectLevelView: View {
                     })
                 }
                 .padding(.horizontal, 40.0)
-                .frame(height: 240.0)
+                .frame(height: 350.0)
                 Spacer()
-                AdView().frame(width: 330, height: 50)
+                AdView().frame(width: .infinity, height: 50)
                 
                 NavigationLink(destination: QuizView(
                                 isShow: self.$isShow,
@@ -91,7 +91,7 @@ struct SelectLevelView: View {
                                     answerButton3: "選択3",
                                     answerButton4: "選択4",
                                     tag: 0,
-                                    judgeImageView: 0)), isActive: self.$isActive){
+                                    judgeImageView: 0, explanation: "解説")), isActive: self.$isActive){
                     EmptyView()
                 }
             }

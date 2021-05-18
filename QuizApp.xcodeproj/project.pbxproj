@@ -12,6 +12,7 @@
 		230F46462644D06A00201629 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230F46452644D06A00201629 /* QuizViewModel.swift */; };
 		230F4650264641E300201629 /* correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 230F464E264641E200201629 /* correct.png */; };
 		230F4651264641E300201629 /* incorrect.png in Resources */ = {isa = PBXBuildFile; fileRef = 230F464F264641E200201629 /* incorrect.png */; };
+		23147CA82653632A007E4E6C /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23147CA72653632A007E4E6C /* QuestionView.swift */; };
 		233EF4BA26424FE80055C5B5 /* QuizAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4B926424FE80055C5B5 /* QuizAppApp.swift */; };
 		233EF4BC26424FE80055C5B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4BB26424FE80055C5B5 /* ContentView.swift */; };
 		233EF4BE26424FE80055C5B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233EF4BD26424FE80055C5B5 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		233EF4CD264256CA0055C5B5 /* SelectLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4CC264256CA0055C5B5 /* SelectLevelView.swift */; };
 		233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4CF264257460055C5B5 /* ScoreView.swift */; };
 		233EF4D32642576D0055C5B5 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4D22642576D0055C5B5 /* QuizView.swift */; };
+		237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D22DA264E29BE004FAF6B /* ExplanationView.swift */; };
 		23FABA4826466D1F0053D0F8 /* quiz2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4726466D1F0053D0F8 /* quiz2.csv */; };
 		23FABA4B26466D480053D0F8 /* quiz3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4A26466D480053D0F8 /* quiz3.csv */; };
 		23FABA55264783B70053D0F8 /* ColorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FABA54264783B70053D0F8 /* ColorTestView.swift */; };
@@ -34,6 +36,7 @@
 		230F46452644D06A00201629 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		230F464E264641E200201629 /* correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = correct.png; sourceTree = "<group>"; };
 		230F464F264641E200201629 /* incorrect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = incorrect.png; sourceTree = "<group>"; };
+		23147CA72653632A007E4E6C /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		233EF4B626424FE80055C5B5 /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		233EF4B926424FE80055C5B5 /* QuizAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppApp.swift; sourceTree = "<group>"; };
 		233EF4BB26424FE80055C5B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		233EF4CC264256CA0055C5B5 /* SelectLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelView.swift; sourceTree = "<group>"; };
 		233EF4CF264257460055C5B5 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		233EF4D22642576D0055C5B5 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		237D22DA264E29BE004FAF6B /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		23FABA4726466D1F0053D0F8 /* quiz2.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz2.csv; sourceTree = "<group>"; };
 		23FABA4A26466D480053D0F8 /* quiz3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz3.csv; sourceTree = "<group>"; };
 		23FABA54264783B70053D0F8 /* ColorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTestView.swift; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 				23FABA51264782AA0053D0F8 /* Model */,
 				23FABA4F2647823E0053D0F8 /* View */,
 				23FABA502647827B0053D0F8 /* ViewModel */,
-				23FABA532647838B0053D0F8 /* Test */,
+				23FABA532647838B0053D0F8 /* TestView */,
 				230F464D264641E200201629 /* image */,
 				233EF4BD26424FE80055C5B5 /* Assets.xcassets */,
 				233EF4C226424FE80055C5B5 /* Info.plist */,
@@ -154,13 +158,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		23FABA532647838B0053D0F8 /* Test */ = {
+		23FABA532647838B0053D0F8 /* TestView */ = {
 			isa = PBXGroup;
 			children = (
 				23FABA54264783B70053D0F8 /* ColorTestView.swift */,
+				23147CA72653632A007E4E6C /* QuestionView.swift */,
 				23FABA6B2647A60D0053D0F8 /* AdView.swift */,
+				237D22DA264E29BE004FAF6B /* ExplanationView.swift */,
 			);
-			path = Test;
+			path = TestView;
 			sourceTree = "<group>";
 		};
 		4B6A4E183DA3BC89FFF21A88 /* Frameworks */ = {
@@ -302,11 +308,13 @@
 				23FABA55264783B70053D0F8 /* ColorTestView.swift in Sources */,
 				233EF4CA264256990055C5B5 /* HomeView.swift in Sources */,
 				233EF4BC26424FE80055C5B5 /* ContentView.swift in Sources */,
+				23147CA82653632A007E4E6C /* QuestionView.swift in Sources */,
 				230F46462644D06A00201629 /* QuizViewModel.swift in Sources */,
 				23FABA6C2647A60D0053D0F8 /* AdView.swift in Sources */,
 				233EF4BA26424FE80055C5B5 /* QuizAppApp.swift in Sources */,
 				233EF4CD264256CA0055C5B5 /* SelectLevelView.swift in Sources */,
 				233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */,
+				237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */,
 				233EF4D32642576D0055C5B5 /* QuizView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
