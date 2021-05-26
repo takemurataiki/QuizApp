@@ -200,36 +200,37 @@ struct QuizView: View {
                             
                            
                         }
-                        .onAppear(){
-                            
-                            quizVM.quizCount = 0
-                            //問題データ入れ込み
-            //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)")
-                            quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1")
-                            
-                            //問題をランダムにする
-                            quizVM.csvArray.shuffle()
-                            
-                            //一問分のデータを入れる
-                            quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
-                            
-                            //問題データ代入
-                            quiz.quizNumberLabel = "第\(quizVM.quizCount + 1)問"
-                            quiz.quizTextView = quizVM.quizArray[0]
-                            quiz.answerButton1 = quizVM.quizArray[2]
-                            quiz.answerButton2 = quizVM.quizArray[3]
-                            quiz.answerButton3 = quizVM.quizArray[4]
-                            quiz.answerButton4 = quizVM.quizArray[5]
-                            quiz.explanation = quizVM.quizArray[6]
-                            
-                            print("選択したレベル\(quizVM.selectLevel)")
-                            
-                            
-                    }
+                        
                     }
                     .navigationBarHidden(true)
                 }
             }
+            .onAppear(){
+                
+                quizVM.quizCount = 0
+                //問題データ入れ込み
+//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)")
+                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1")
+                
+                //問題をランダムにする
+                quizVM.csvArray.shuffle()
+                
+                //一問分のデータを入れる
+                quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
+                
+                //問題データ代入
+                quiz.quizNumberLabel = "第\(quizVM.quizCount + 1)問"
+                quiz.quizTextView = quizVM.quizArray[0]
+                quiz.answerButton1 = quizVM.quizArray[2]
+                quiz.answerButton2 = quizVM.quizArray[3]
+                quiz.answerButton3 = quizVM.quizArray[4]
+                quiz.answerButton4 = quizVM.quizArray[5]
+                quiz.explanation = quizVM.quizArray[6]
+                
+                print("選択したレベル\(quizVM.selectLevel)")
+                
+                
+        }
             AdView().frame(width: 330, height: 50)
         }
 
