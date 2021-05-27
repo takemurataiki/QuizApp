@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var isActive = false
     @EnvironmentObject var quizVM: QuizViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {

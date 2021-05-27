@@ -81,17 +81,8 @@ struct SelectLevelView: View {
                 Spacer()
                 AdView().frame(width: .infinity, height: 50)
                 
-                NavigationLink(destination: QuizView(
-                                isShow: self.$isShow,
-                                quiz: QuizData(
-                                    quizNumberLabel: "問題番号",
-                                    quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
-                                    answerButton1: "選択1",
-                                    answerButton2: "選択2",
-                                    answerButton3: "選択3",
-                                    answerButton4: "選択4",
-                                    tag: 0,
-                                    judgeImageView: 0, explanation: "解説")), isActive: self.$isActive){
+                NavigationLink(destination: SelectQuizView(
+                                isShow: self.$isShow), isActive: self.$isActive){
                     EmptyView()
                 }
             }

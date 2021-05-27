@@ -74,11 +74,21 @@ struct QuizView: View {
             ZStack {
                 if flag {
                     ZStack {
-                        Color.white.ignoresSafeArea(.all)
+                        Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                     VStack {
+                        Text("解説")
+                        Spacer()
+                        HStack {
+                            Text("判定")
+                            Image(judgeImage)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                
+                        }
                         
                         Text(quiz.explanation)
                             .padding(.vertical, 20.0)
+                            
                             
                         
                         
@@ -86,12 +96,13 @@ struct QuizView: View {
                             flag = false
                             btnTapp = false
                             nextQuiz()
+                            self.judgeImage = ""
                            
                             }) {
                                 Text("次の問題へ")
                                     
                             }
-                        
+                        Spacer()
                         
                        
                         

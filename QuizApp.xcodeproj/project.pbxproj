@@ -21,6 +21,10 @@
 		233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4CF264257460055C5B5 /* ScoreView.swift */; };
 		233EF4D32642576D0055C5B5 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4D22642576D0055C5B5 /* QuizView.swift */; };
 		237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D22DA264E29BE004FAF6B /* ExplanationView.swift */; };
+		239EE222265F614200D24B9E /* SelectQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239EE221265F614200D24B9E /* SelectQuizView.swift */; };
+		239EE228265F68DC00D24B9E /* quiz1-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE227265F68DC00D24B9E /* quiz1-1.csv */; };
+		239EE22C265F68FC00D24B9E /* quiz2-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE22B265F68FC00D24B9E /* quiz2-1.csv */; };
+		239EE22F265F690C00D24B9E /* quiz3-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE22E265F690C00D24B9E /* quiz3-1.csv */; };
 		23FABA4826466D1F0053D0F8 /* quiz2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4726466D1F0053D0F8 /* quiz2.csv */; };
 		23FABA4B26466D480053D0F8 /* quiz3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4A26466D480053D0F8 /* quiz3.csv */; };
 		23FABA55264783B70053D0F8 /* ColorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FABA54264783B70053D0F8 /* ColorTestView.swift */; };
@@ -46,6 +50,10 @@
 		233EF4CF264257460055C5B5 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		233EF4D22642576D0055C5B5 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		237D22DA264E29BE004FAF6B /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
+		239EE221265F614200D24B9E /* SelectQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectQuizView.swift; sourceTree = "<group>"; };
+		239EE227265F68DC00D24B9E /* quiz1-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-1.csv"; sourceTree = "<group>"; };
+		239EE22B265F68FC00D24B9E /* quiz2-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz2-1.csv"; sourceTree = "<group>"; };
+		239EE22E265F690C00D24B9E /* quiz3-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz3-1.csv"; sourceTree = "<group>"; };
 		23FABA4726466D1F0053D0F8 /* quiz2.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz2.csv; sourceTree = "<group>"; };
 		23FABA4A26466D480053D0F8 /* quiz3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz3.csv; sourceTree = "<group>"; };
 		23FABA54264783B70053D0F8 /* ColorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTestView.swift; sourceTree = "<group>"; };
@@ -119,12 +127,39 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		23FABA4D264782220053D0F8 /* Data */ = {
+		239EE224265F688700D24B9E /* 初級 */ = {
 			isa = PBXGroup;
 			children = (
 				230F46422644CF1200201629 /* quiz1.csv */,
+				239EE227265F68DC00D24B9E /* quiz1-1.csv */,
+			);
+			path = "初級";
+			sourceTree = "<group>";
+		};
+		239EE225265F689700D24B9E /* 中級 */ = {
+			isa = PBXGroup;
+			children = (
 				23FABA4726466D1F0053D0F8 /* quiz2.csv */,
+				239EE22B265F68FC00D24B9E /* quiz2-1.csv */,
+			);
+			path = "中級";
+			sourceTree = "<group>";
+		};
+		239EE226265F68B000D24B9E /* 上級 */ = {
+			isa = PBXGroup;
+			children = (
 				23FABA4A26466D480053D0F8 /* quiz3.csv */,
+				239EE22E265F690C00D24B9E /* quiz3-1.csv */,
+			);
+			path = "上級";
+			sourceTree = "<group>";
+		};
+		23FABA4D264782220053D0F8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				239EE224265F688700D24B9E /* 初級 */,
+				239EE225265F689700D24B9E /* 中級 */,
+				239EE226265F68B000D24B9E /* 上級 */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -134,6 +169,7 @@
 			children = (
 				233EF4C9264256990055C5B5 /* HomeView.swift */,
 				233EF4CC264256CA0055C5B5 /* SelectLevelView.swift */,
+				239EE221265F614200D24B9E /* SelectQuizView.swift */,
 				233EF4D22642576D0055C5B5 /* QuizView.swift */,
 				233EF4CF264257460055C5B5 /* ScoreView.swift */,
 			);
@@ -245,10 +281,13 @@
 				230F4651264641E300201629 /* incorrect.png in Resources */,
 				230F4650264641E300201629 /* correct.png in Resources */,
 				23FABA4826466D1F0053D0F8 /* quiz2.csv in Resources */,
+				239EE22C265F68FC00D24B9E /* quiz2-1.csv in Resources */,
 				233EF4C126424FE80055C5B5 /* Preview Assets.xcassets in Resources */,
+				239EE22F265F690C00D24B9E /* quiz3-1.csv in Resources */,
 				23FABA4B26466D480053D0F8 /* quiz3.csv in Resources */,
 				233EF4BE26424FE80055C5B5 /* Assets.xcassets in Resources */,
 				230F46432644CF1200201629 /* quiz1.csv in Resources */,
+				239EE228265F68DC00D24B9E /* quiz1-1.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +347,7 @@
 				230F46462644D06A00201629 /* QuizViewModel.swift in Sources */,
 				23FABA6C2647A60D0053D0F8 /* AdView.swift in Sources */,
 				233EF4BA26424FE80055C5B5 /* QuizAppApp.swift in Sources */,
+				239EE222265F614200D24B9E /* SelectQuizView.swift in Sources */,
 				233EF4CD264256CA0055C5B5 /* SelectLevelView.swift in Sources */,
 				233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */,
 				237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */,
