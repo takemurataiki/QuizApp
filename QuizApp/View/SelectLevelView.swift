@@ -41,7 +41,6 @@ struct SelectLevelView: View {
                     
                     Button(action: {
                         selectTag = 1
-                       
                         levelButtonAction()
                     }, label: {
                         Text("初級")

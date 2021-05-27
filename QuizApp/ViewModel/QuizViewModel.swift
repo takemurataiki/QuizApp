@@ -27,6 +27,8 @@ class QuizViewModel: ObservableObject {
     //どのレベルを選択したか
     @Published var selectLevel = 0
     
+    //どのレベルを選択したか
+    @Published var selectQuiz = 0
     
     //csvファイルの問題データ入れ込み
     func loadCSV(fileName: String) -> [String] {

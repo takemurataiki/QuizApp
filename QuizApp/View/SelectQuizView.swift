@@ -18,7 +18,7 @@ struct SelectQuizView: View {
     
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
-        quizVM.selectLevel = selectTag
+        quizVM.selectQuiz = selectTag
         isActive = true
     }
     var body: some View {
@@ -37,13 +37,15 @@ struct SelectQuizView: View {
                 Spacer()
                 
                     List {
-                        ForEach(0..<3) {_ in
+                        ForEach(0..<3) { index in
                             Button(action: {
-                                selectTag = 1
-                               
+                                selectTag = index+1
+
                                 levelButtonAction()
+                                
                             }, label: {
-                                Text("初級")
+                                Text("1-\(index+1)")
+                                
                                     
                             
                             })
