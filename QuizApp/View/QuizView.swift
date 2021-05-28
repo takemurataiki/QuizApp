@@ -105,7 +105,10 @@ struct QuizView: View {
                         }
                         
                         Spacer()
-                        Text("解答")
+                        HStack {
+                            Text("【解答】")
+                            Spacer()
+                        }
                         Text(quiz.explanation)
                             .padding(.vertical, 20.0)
                             

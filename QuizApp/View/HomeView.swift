@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @State private var isActive = false
     @EnvironmentObject var quizVM: QuizViewModel
     
     var body: some View {
-        NavigationView {
+        
+//        NavigationView {
             ZStack {
                 Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                 VStack {
@@ -20,10 +22,11 @@ struct HomeView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color.black)
-                        
-                    
+                        .padding(.all, 30.0)
+
+
                     Spacer()
-                    
+
                     //スタートボタン
                     NavigationLink(destination: SelectLevelView(
                                     isShow: self.$isActive),
@@ -33,17 +36,28 @@ struct HomeView: View {
                             .frame(width: 300.0, height: 80.0)
                             .background(Color.white)
                     }
-                    
-                    
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("復習")
+                            .padding(.all, 30.0)
+                            .frame(width: 300.0, height: 80.0)
+                            .background(Color.white)
+                    }
+                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("テスト")
+                            .padding(.all, 30.0)
+                            .frame(width: 300.0, height: 80.0)
+                            .background(Color.white)
+                    }
                     Spacer()
-                    
+
                     AdView().frame(width:.infinity, height: 50)
                 }
-                
-                
+
+
             }
-            
-        }
+            .navigationBarHidden(true)
+
+//        }
         
     }
 }

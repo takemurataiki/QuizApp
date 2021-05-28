@@ -23,6 +23,7 @@
 		237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D22DA264E29BE004FAF6B /* ExplanationView.swift */; };
 		239660D5265F769B0088CE58 /* quiz1-2.cdv in Resources */ = {isa = PBXBuildFile; fileRef = 239660D4265F769B0088CE58 /* quiz1-2.cdv */; };
 		239660D9265F76B30088CE58 /* quiz1-3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239660D8265F76B30088CE58 /* quiz1-3.csv */; };
+		239660DC2660BC3F0088CE58 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239660DB2660BC3F0088CE58 /* SettingView.swift */; };
 		239EE222265F614200D24B9E /* SelectQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239EE221265F614200D24B9E /* SelectQuizView.swift */; };
 		239EE228265F68DC00D24B9E /* quiz1-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE227265F68DC00D24B9E /* quiz1-1.csv */; };
 		239EE22C265F68FC00D24B9E /* quiz2-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE22B265F68FC00D24B9E /* quiz2-1.csv */; };
@@ -54,6 +55,7 @@
 		237D22DA264E29BE004FAF6B /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		239660D4265F769B0088CE58 /* quiz1-2.cdv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-2.cdv"; sourceTree = "<group>"; };
 		239660D8265F76B30088CE58 /* quiz1-3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-3.csv"; sourceTree = "<group>"; };
+		239660DB2660BC3F0088CE58 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		239EE221265F614200D24B9E /* SelectQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectQuizView.swift; sourceTree = "<group>"; };
 		239EE227265F68DC00D24B9E /* quiz1-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-1.csv"; sourceTree = "<group>"; };
 		239EE22B265F68FC00D24B9E /* quiz2-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz2-1.csv"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				233EF4C9264256990055C5B5 /* HomeView.swift */,
+				239660DB2660BC3F0088CE58 /* SettingView.swift */,
 				233EF4CC264256CA0055C5B5 /* SelectLevelView.swift */,
 				239EE221265F614200D24B9E /* SelectQuizView.swift */,
 				233EF4D22642576D0055C5B5 /* QuizView.swift */,
@@ -356,6 +359,7 @@
 				23FABA6C2647A60D0053D0F8 /* AdView.swift in Sources */,
 				233EF4BA26424FE80055C5B5 /* QuizAppApp.swift in Sources */,
 				239EE222265F614200D24B9E /* SelectQuizView.swift in Sources */,
+				239660DC2660BC3F0088CE58 /* SettingView.swift in Sources */,
 				233EF4CD264256CA0055C5B5 /* SelectLevelView.swift in Sources */,
 				233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */,
 				237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */,
