@@ -77,7 +77,8 @@ struct QuizView: View {
                         Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                     VStack {
                         Text("解説")
-                        Spacer()
+                            .padding(.vertical, 20.0)
+                        
                         HStack {
                             Text("判定")
                             Image(judgeImage)
@@ -86,6 +87,25 @@ struct QuizView: View {
                                 
                         }
                         
+                        HStack {
+                            Text("【回答】")
+                            
+                            Text("\(quiz.tag),")
+                            Text(quizVM.quizArray[quiz.tag+1])
+                            Spacer()
+                            
+                        }
+                        
+                        HStack {
+                            Text("【正解】")
+                            Text("\(quizVM.quizArray[1]),")
+                            Text(quizVM.quizArray[1+Int(quizVM.quizArray[1])!])
+                            Spacer()
+                            
+                        }
+                        
+                        Spacer()
+                        Text("解答")
                         Text(quiz.explanation)
                             .padding(.vertical, 20.0)
                             
@@ -126,14 +146,7 @@ struct QuizView: View {
                             ZStack {
                                 Text(quiz.quizTextView).lineLimit(nil)
                                     
-                                
-                                
-//                                Image(judgeImage)
-//                                    .frame(width:.infinity)
-//
-                                    
-                                    
-                                
+                 
                             }
                             .frame(width: .infinity, height: 300.0)
                             .padding(.vertical, 10.0)
@@ -147,10 +160,16 @@ struct QuizView: View {
                                     btnAction()
                                     print("スコア：\(quizVM.correctCount)")
                                     }) {
+                                    HStack {
+                                        Text("1,")
+                                            .padding(.leading, 5.0)
+                                        Spacer()
                                         Text(quiz.answerButton1)
-                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                            .background(Color.white)
-                                            .padding(.horizontal, 10.0)
+                                        Spacer()
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .background(Color.white)
+                                    .padding(.horizontal, 10.0)
                                     }
                                 .disabled(btnTapp)
                                 
@@ -161,10 +180,17 @@ struct QuizView: View {
                                     print("スコア：\(quizVM.correctCount)")
                                     
                                 }, label: {
-                                    Text(quiz.answerButton2)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .background(Color.white)
-                                        .padding(.horizontal, 10.0)
+                                    HStack {
+                                        Text("2,")
+                                            .padding(.leading, 5.0)
+                                            
+                                        Spacer()
+                                        Text(quiz.answerButton2)
+                                        Spacer()
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .background(Color.white)
+                                    .padding(.horizontal, 10.0)
                                 
                                 })
                                 .disabled(btnTapp)
@@ -176,25 +202,38 @@ struct QuizView: View {
                                     
                                     
                                 }, label: {
-                                    Text(quiz.answerButton3)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .background(Color.white)
-                                        .padding(.horizontal, 10.0)
+                                    HStack {
+                                        Text("3,")
+                                            .padding(.leading, 5.0)
+                                        Spacer()
+                                        Text(quiz.answerButton3)
+                                        Spacer()
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .background(Color.white)
+                                    .padding(.horizontal, 10.0)
                                 
                                 })
                                 .disabled(btnTapp)
                                 Spacer()
                                 Button(action: {
+                                    
                                     quiz.tag = 4
                                     btnAction()
                                     print("スコア：\(quizVM.correctCount)")
                                     
                                     
                                 }, label: {
-                                    Text(quiz.answerButton4)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                        .background(Color.white)
-                                        .padding(.horizontal, 10.0)
+                                    HStack {
+                                        Text("4,")
+                                            .padding(.leading, 5.0)
+                                        Spacer()
+                                        Text(quiz.answerButton4)
+                                        Spacer()
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .background(Color.white)
+                                    .padding(.horizontal, 10.0)
                                         
                                 
                                 })
@@ -220,8 +259,8 @@ struct QuizView: View {
                 
                 quizVM.quizCount = 0
                 //問題データ入れ込み
-                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectQuiz)")
-//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1")
+//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectQuiz)")
+                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1")
                 
                 //問題をランダムにする
                 quizVM.csvArray.shuffle()
@@ -232,6 +271,7 @@ struct QuizView: View {
                 //問題データ代入
                 quiz.quizNumberLabel = "第\(quizVM.quizCount + 1)問"
                 quiz.quizTextView = quizVM.quizArray[0]
+
                 quiz.answerButton1 = quizVM.quizArray[2]
                 quiz.answerButton2 = quizVM.quizArray[3]
                 quiz.answerButton3 = quizVM.quizArray[4]

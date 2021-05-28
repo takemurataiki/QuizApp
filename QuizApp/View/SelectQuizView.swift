@@ -37,7 +37,7 @@ struct SelectQuizView: View {
                 Spacer()
                 
                     List {
-                        ForEach(0..<3) { index in
+                        ForEach(0..<3,id:\.self) { index in
                             Button(action: {
                                 selectTag = index+1
 
@@ -46,12 +46,20 @@ struct SelectQuizView: View {
                             }, label: {
                                 Text("1-\(index+1)")
                                 
+                                
                                     
                             
                             })
                         }
+                        .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                     }///謎の空白を埋める
+                    
                     .listStyle(PlainListStyle())
+                    
+               
+
+                
+                    
                     
                    
                 Spacer()
@@ -72,7 +80,7 @@ struct SelectQuizView: View {
                 }
             }
         }
-    }
+        }
 }
 
 struct SelectQuizView_Previews: PreviewProvider {
