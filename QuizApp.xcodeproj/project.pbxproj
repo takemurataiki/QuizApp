@@ -20,6 +20,7 @@
 		233EF4CD264256CA0055C5B5 /* SelectLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4CC264256CA0055C5B5 /* SelectLevelView.swift */; };
 		233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4CF264257460055C5B5 /* ScoreView.swift */; };
 		233EF4D32642576D0055C5B5 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4D22642576D0055C5B5 /* QuizView.swift */; };
+		236011BF26675C2D0000CB4E /* BackViewIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236011BE26675C2D0000CB4E /* BackViewIView.swift */; };
 		237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D22DA264E29BE004FAF6B /* ExplanationView.swift */; };
 		239660D5265F769B0088CE58 /* quiz1-2.cdv in Resources */ = {isa = PBXBuildFile; fileRef = 239660D4265F769B0088CE58 /* quiz1-2.cdv */; };
 		239660D9265F76B30088CE58 /* quiz1-3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239660D8265F76B30088CE58 /* quiz1-3.csv */; };
@@ -52,6 +53,7 @@
 		233EF4CC264256CA0055C5B5 /* SelectLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelView.swift; sourceTree = "<group>"; };
 		233EF4CF264257460055C5B5 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		233EF4D22642576D0055C5B5 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		236011BE26675C2D0000CB4E /* BackViewIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackViewIView.swift; sourceTree = "<group>"; };
 		237D22DA264E29BE004FAF6B /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		239660D4265F769B0088CE58 /* quiz1-2.cdv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-2.cdv"; sourceTree = "<group>"; };
 		239660D8265F76B30088CE58 /* quiz1-3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-3.csv"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				23FABA54264783B70053D0F8 /* ColorTestView.swift */,
 				23FABA6B2647A60D0053D0F8 /* AdView.swift */,
 				237D22DA264E29BE004FAF6B /* ExplanationView.swift */,
+				236011BE26675C2D0000CB4E /* BackViewIView.swift */,
 			);
 			path = TestView;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				23FABA6C2647A60D0053D0F8 /* AdView.swift in Sources */,
 				233EF4BA26424FE80055C5B5 /* QuizAppApp.swift in Sources */,
 				239EE222265F614200D24B9E /* SelectQuizView.swift in Sources */,
+				236011BF26675C2D0000CB4E /* BackViewIView.swift in Sources */,
 				239660DC2660BC3F0088CE58 /* SettingView.swift in Sources */,
 				233EF4CD264256CA0055C5B5 /* SelectLevelView.swift in Sources */,
 				233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */,

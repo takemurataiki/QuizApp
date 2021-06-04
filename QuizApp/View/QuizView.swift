@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct QuizView: View {
-    
+    //ボタンをタップしたかどうか
+    @State var btnTapp:Bool = false
     @Binding var isShow: Bool
+    
     @State var quiz: QuizData
     @EnvironmentObject var quizVM: QuizViewModel
     
+    
     //問題がなくなった時のスイッチ
-    @State var isActive: Bool = false
+    @State var nextPage: Bool = false
     
     //正誤判定画像
     @State var judgeImage = ""
     
-    //ボタンをタップしたかどうか
-    @State var btnTapp:Bool = false
     
     @State var flag:Bool = false
     
@@ -30,6 +31,7 @@ struct QuizView: View {
     func btnAction() {
         flag = true
         btnTapp = true
+        
         //正解判定
         if quiz.tag == Int(quizVM.quizArray[1]) {
             //スコアカウント
@@ -65,7 +67,7 @@ struct QuizView: View {
             quiz.answerButton4 = quizVM.quizArray[5]
             quiz.explanation = quizVM.quizArray[6]
         } else {
-            isActive = true
+            nextPage = true
         }
     }
     
@@ -247,9 +249,10 @@ struct QuizView: View {
                         
                             Spacer()
                         
-                            NavigationLink(destination: ScoreView(isShow: self.$isShow), isActive: $isActive) {
+                            NavigationLink(destination: ScoreView(isShow: self.$isShow), isActive: $nextPage) {
                                 EmptyView()
                             }
+                            .isDetailLink(false)
                             
                            
                         }

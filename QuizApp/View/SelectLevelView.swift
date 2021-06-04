@@ -10,17 +10,18 @@ import SwiftUI
 struct SelectLevelView: View {
     
     @State var selectTag = 0
-    //ボタンをタップしたかどうか
-    @State var isActive:Bool = false
     
-    @Binding var isShow: Bool
+    //ボタンをタップしたかどうか
+    @State var btnTap = false
+    
+    
     
     @EnvironmentObject var quizVM: QuizViewModel
     
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
         quizVM.selectLevel = selectTag
-        isActive = true
+        btnTap = true
     }
     
     var body: some View {
@@ -80,19 +81,20 @@ struct SelectLevelView: View {
                 Spacer()
                 AdView().frame(width: .infinity, height: 50)
                 
-                NavigationLink(destination: SelectQuizView(
-                                isShow: self.$isShow), isActive: self.$isActive){
+                NavigationLink(destination: SelectQuizView(),isActive: $btnTap){
                     EmptyView()
                 }
+                .isDetailLink(false)
             }
         }
+        
         
     }
 }
 
 struct SelectLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectLevelView(isShow: .constant(false))
+        SelectLevelView()
                     .environmentObject(QuizViewModel())
     }
 }

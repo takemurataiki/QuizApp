@@ -9,12 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var isActive = false
+
+    
     @EnvironmentObject var quizVM: QuizViewModel
     
     var body: some View {
         
-//        NavigationView {
+        NavigationView {
             ZStack {
                 Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                 VStack {
@@ -28,14 +29,14 @@ struct HomeView: View {
                     Spacer()
 
                     //スタートボタン
-                    NavigationLink(destination: SelectLevelView(
-                                    isShow: self.$isActive),
-                                   isActive: self.$isActive){
+                    NavigationLink(destination: SelectLevelView()){
                         Text("スタート")
                             .padding(.all, 30.0)
                             .frame(width: 300.0, height: 80.0)
                             .background(Color.white)
                     }
+                    .isDetailLink(false)
+                    
                     Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
                         Text("復習")
                             .padding(.all, 30.0)
@@ -57,7 +58,7 @@ struct HomeView: View {
             }
             .navigationBarHidden(true)
 
-//        }
+        }
         
     }
 }

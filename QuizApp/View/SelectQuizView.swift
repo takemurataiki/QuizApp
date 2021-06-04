@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct SelectQuizView: View {
-    @State var selectTag = 0
-    //ボタンをタップしたかどうか
-    @State var isActive:Bool = false
     
-    @Binding var isShow: Bool
     
     @EnvironmentObject var quizVM: QuizViewModel
+    
+    //ボタンをタップしたかどうか
+    @State var btnTap:Bool = false
+    @Binding var isShow: Bool
+    
+    
+    @State var selectTag = 0
     
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
         quizVM.selectQuiz = selectTag
-        isActive = true
+        btnTap = true
+        
     }
     var body: some View {
         ZStack {
@@ -40,7 +44,6 @@ struct SelectQuizView: View {
                         ForEach(0..<3,id:\.self) { index in
                             Button(action: {
                                 selectTag = index+1
-
                                 levelButtonAction()
                                 
                             }, label: {
@@ -66,7 +69,7 @@ struct SelectQuizView: View {
                 AdView().frame(width: .infinity, height: 50)
                 
                 NavigationLink(destination: QuizView(
-                                isShow: self.$isShow,
+                                isShow: $btnTap,
                                 quiz: QuizData(
                                     quizNumberLabel: "問題番号",
                                     quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
@@ -75,9 +78,10 @@ struct SelectQuizView: View {
                                     answerButton3: "選択3",
                                     answerButton4: "選択4",
                                     tag: 0,
-                                    judgeImageView: 0, explanation: "解説")), isActive: self.$isActive){
+                                    judgeImageView: 0, explanation: "解説")), isActive: $btnTap){
                     EmptyView()
                 }
+                .isDetailLink(false)
             }
         }
         }

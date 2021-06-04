@@ -10,6 +10,7 @@ import SwiftUI
 struct ScoreView: View {
     @State var scoreLabel = 0
     
+    //画面遷移
     @Binding var isShow: Bool
     
     @EnvironmentObject var quizVM: QuizViewModel
