@@ -59,7 +59,7 @@ struct QuizView: View {
         quizVM.quizCount += 1
         if quizVM.quizCount < quizVM.csvArray.count {
             quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
-            quiz.quizNumberLabel = "第\(quizVM.quizCount + 1)問"
+            quiz.quizNumberLabel = quizVM.quizCount + 1
             quiz.quizTextView = quizVM.quizArray[0]
             quiz.answerButton1 = quizVM.quizArray[2]
             quiz.answerButton2 = quizVM.quizArray[3]
@@ -142,7 +142,7 @@ struct QuizView: View {
                         Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                         VStack {
                             
-                            Text(quiz.quizNumberLabel)
+                            Text("第\(quiz.quizNumberLabel)問")
                                 .padding(.vertical, 20.0)
                                 
                             
@@ -249,7 +249,15 @@ struct QuizView: View {
                         
                             Spacer()
                         
-                            NavigationLink(destination: ScoreView(isShow: self.$isShow), isActive: $nextPage) {
+                            NavigationLink(destination: ScoreView(isShow: self.$isShow, quiz: QuizData(
+                                                                  quizNumberLabel: 0,
+                                                                  quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
+                                                                  answerButton1: "選択1",
+                                                                  answerButton2: "選択2",
+                                                                  answerButton3: "選択3",
+                                                                  answerButton4: "選択4",
+                                                                    explanation: "解説", tag: 0,
+                                                                    judgeImageView: 0, score: 0)), isActive: $nextPage) {
                                 EmptyView()
                             }
                             .isDetailLink(false)
@@ -275,7 +283,7 @@ struct QuizView: View {
                 quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
                 
                 //問題データ代入
-                quiz.quizNumberLabel = "第\(quizVM.quizCount + 1)問"
+                quiz.quizNumberLabel = quizVM.quizCount + 1
                 quiz.quizTextView = quizVM.quizArray[0]
 
                 quiz.answerButton1 = quizVM.quizArray[2]
@@ -297,15 +305,16 @@ struct QuizView: View {
 
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizView(isShow: .constant(false), quiz: QuizData(
-                    quizNumberLabel: "問題番号",
+        QuizView(isShow: .constant(false),
+                 quiz: QuizData(
+                    quizNumberLabel: 0,
                     quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
                     answerButton1: "選択1",
                     answerButton2: "選択2",
                     answerButton3: "選択3",
                     answerButton4: "選択4",
-                    tag: 0,
-                    judgeImageView: 0, explanation: "解説"))
+                    explanation: "解説", tag: 0,
+                    judgeImageView: 0, score: 0))
             .environmentObject(QuizViewModel())
     }
 }
