@@ -37,20 +37,16 @@ struct SelectQuizView: View {
                     .lineLimit(nil)
                     .padding(.all, 30.0)
                     
-                    
                 Spacer()
                 
                     List {
-                        ForEach(quizVM.csvArray,id:\.self) { index in
+                        ForEach(0 ..< quizVM.csvArray.count,id:\.self) { index in
                             Button(action: {
-                                selectTag = Int(quiz.quizNumberLabel) 
                                 levelButtonAction()
                                 
                             }, label: {
                                 HStack {
-                                    
-                                    
-                                    Text("1-\(selectTag)")
+                                    Text("1-\(index+1)")
                                     Spacer()
                                     Text("\(quiz.score)/5")
                                         .padding(.trailing, 10.0)
@@ -63,7 +59,7 @@ struct SelectQuizView: View {
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
                     .onAppear() {
-                        selectTag = Int(quiz.quizNumberLabel) 
+                        
                     }
                
 
