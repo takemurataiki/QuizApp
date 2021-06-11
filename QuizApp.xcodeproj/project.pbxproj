@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,10 @@
 		239EE228265F68DC00D24B9E /* quiz1-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE227265F68DC00D24B9E /* quiz1-1.csv */; };
 		239EE22C265F68FC00D24B9E /* quiz2-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE22B265F68FC00D24B9E /* quiz2-1.csv */; };
 		239EE22F265F690C00D24B9E /* quiz3-1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239EE22E265F690C00D24B9E /* quiz3-1.csv */; };
+		23F7E5352673232A009462DF /* Pods_QuizApp.framework in Resources */ = {isa = PBXBuildFile; fileRef = 01F86FB1479B6EA12060E39B /* Pods_QuizApp.framework */; };
+		23F7E53726732366009462DF /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7E53626732366009462DF /* GoogleUtilities.framework */; };
+		23F7E5392673236F009462DF /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7E5382673236F009462DF /* GoogleAppMeasurement.xcframework */; };
+		23F7E53C2673237D009462DF /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7E53B2673237D009462DF /* GoogleMobileAds.xcframework */; };
 		23FABA4826466D1F0053D0F8 /* quiz2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4726466D1F0053D0F8 /* quiz2.csv */; };
 		23FABA4B26466D480053D0F8 /* quiz3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4A26466D480053D0F8 /* quiz3.csv */; };
 		23FABA55264783B70053D0F8 /* ColorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FABA54264783B70053D0F8 /* ColorTestView.swift */; };
@@ -64,6 +68,9 @@
 		239EE227265F68DC00D24B9E /* quiz1-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-1.csv"; sourceTree = "<group>"; };
 		239EE22B265F68FC00D24B9E /* quiz2-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz2-1.csv"; sourceTree = "<group>"; };
 		239EE22E265F690C00D24B9E /* quiz3-1.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz3-1.csv"; sourceTree = "<group>"; };
+		23F7E53626732366009462DF /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23F7E5382673236F009462DF /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		23F7E53B2673237D009462DF /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		23FABA4726466D1F0053D0F8 /* quiz2.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz2.csv; sourceTree = "<group>"; };
 		23FABA4A26466D480053D0F8 /* quiz3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz3.csv; sourceTree = "<group>"; };
 		23FABA54264783B70053D0F8 /* ColorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTestView.swift; sourceTree = "<group>"; };
@@ -77,6 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F7E53C2673237D009462DF /* GoogleMobileAds.xcframework in Frameworks */,
+				23F7E5392673236F009462DF /* GoogleAppMeasurement.xcframework in Frameworks */,
+				23F7E53726732366009462DF /* GoogleUtilities.framework in Frameworks */,
 				82C8CEC5B44CE57B1E0B25D7 /* Pods_QuizApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +230,9 @@
 		4B6A4E183DA3BC89FFF21A88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23F7E53B2673237D009462DF /* GoogleMobileAds.xcframework */,
+				23F7E5382673236F009462DF /* GoogleAppMeasurement.xcframework */,
+				23F7E53626732366009462DF /* GoogleUtilities.framework */,
 				01F86FB1479B6EA12060E39B /* Pods_QuizApp.framework */,
 			);
 			name = Frameworks;
@@ -293,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F7E5352673232A009462DF /* Pods_QuizApp.framework in Resources */,
 				230F4651264641E300201629 /* incorrect.png in Resources */,
 				230F4650264641E300201629 /* correct.png in Resources */,
 				23FABA4826466D1F0053D0F8 /* quiz2.csv in Resources */,
