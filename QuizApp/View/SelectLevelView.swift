@@ -93,6 +93,8 @@ struct SelectLevelView: View {
                     EmptyView()
                 }
                 .isDetailLink(false)
+                .navigationBarHidden(true)
+                
             }
         }
         

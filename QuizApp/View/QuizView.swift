@@ -153,7 +153,7 @@ struct QuizView: View {
                                     
                  
                             }
-                            .frame(width: .infinity, height: 300.0)
+                            .frame(width: .infinity, height: 200.0)
                             .padding(.vertical, 10.0)
                             
                             
