@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SelectCategoryView: View {
-    
+    //Model
     @State var quiz: QuizData
+    @State var category: CategoryData
+    //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
     //ボタンをタップしたかどうか
@@ -92,7 +94,7 @@ struct SelectCategoryView: View {
 
 struct SelectCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectCategoryView(quiz: QuizData.default, isShow: .constant(false))
+        SelectCategoryView(quiz: QuizData.default, category: CategoryData.default, isShow: .constant(false))
             .environmentObject(QuizViewModel())
     }
 }

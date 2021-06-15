@@ -89,11 +89,11 @@ struct SelectLevelView: View {
                                                            answerButton3: "選択3",
                                                            answerButton4: "選択4",
                                                             explanation: "解説", tag: 0,
-                                                            judgeImageView: 0, score: 0), isShow: $btnTap),isActive: $btnTap){
+                                                                judgeImageView: 0, score: 0), category: CategoryData.default, isShow: $btnTap),isActive: $btnTap){
                     EmptyView()
                 }
                 .isDetailLink(false)
-                .navigationBarHidden(true)
+                
                 
             }
         }

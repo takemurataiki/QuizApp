@@ -11,9 +11,10 @@ struct QuizView: View {
     //ボタンをタップしたかどうか
     @State var btnTapp:Bool = false
     @Binding var isShow: Bool
-    
+    //Model
     @State var quiz: QuizData
     @State var category: CategoryData
+    //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
     
