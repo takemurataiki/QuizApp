@@ -26,16 +26,14 @@ struct QuizView: View {
     @State var flag:Bool = false
     
     
-    
     //ボタンをタップした時のアクション
     func btnAction() {
         flag = true
         btnTapp = true
-        
         //正解判定
         if quiz.tag == Int(quizVM.quizArray[1]) {
             //スコアカウント
-            quizVM.correctCount += 1
+            quiz.score += 1
             //◯画像表示
             judgeImage = "correct"
             print("正解")
@@ -129,11 +127,7 @@ struct QuizView: View {
                             }
                         Spacer()
                         
-                       
-                        
-                       
                     }
-               
                 }
                 .navigationBarHidden(true)
                 }

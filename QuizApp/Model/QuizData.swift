@@ -29,8 +29,7 @@ struct  QuizData: Codable,Identifiable {
     //正解番号
     var judgeImageView: Int
     
-    
-    //正解した番号
+    //正解した問題数
     var score :Int
 
     }

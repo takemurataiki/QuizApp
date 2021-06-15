@@ -23,13 +23,14 @@ struct SelectQuizView: View {
     func levelButtonAction() {
         quizVM.selectQuiz = selectTag
         btnTap = true
-        
     }
+    
     var body: some View {
         ZStack {
+            
             Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
+            
             VStack {
-                
                 
                 Text("問題を選択してください")
                     .font(.title2)
@@ -72,8 +73,7 @@ struct SelectQuizView: View {
                 
                 NavigationLink(destination: QuizView(
                                 isShow: $btnTap,
-                                quiz: QuizData(
-                                    quizNumberLabel: 0,
+                                quiz: QuizData(quizNumberLabel: 0,
                                     quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
                                     answerButton1: "選択1",
                                     answerButton2: "選択2",

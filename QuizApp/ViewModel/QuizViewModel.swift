@@ -9,7 +9,7 @@ import Foundation
 import GoogleMobileAds
 
 class QuizViewModel: ObservableObject {
-    
+    //広告
     @Published var bannerView: GADBannerView!
     
     //csvファイルにすべてのデータを読み込む箱
@@ -31,13 +31,6 @@ class QuizViewModel: ObservableObject {
         }
     }
     
-    init() {
-        
-        csvArray = UserDefaults.standard.decodedObject([String].self, forKey: "csvArray") ?? []
-        quizArray = UserDefaults.standard.decodedObject([String].self, forKey: "quizArray") ?? []
-        
-    }
-    
     //問題数
     @Published var quizCount = 0
     
@@ -49,6 +42,13 @@ class QuizViewModel: ObservableObject {
     
     //どのレベルを選択したか
     @Published var selectQuiz = 0
+    
+    init() {
+        
+        csvArray = UserDefaults.standard.decodedObject([String].self, forKey: "csvArray") ?? []
+        quizArray = UserDefaults.standard.decodedObject([String].self, forKey: "quizArray") ?? []
+        
+    }
     
     //csvファイルの問題データ入れ込み
     func loadCSV(fileName: String) -> [String] {
@@ -63,33 +63,4 @@ class QuizViewModel: ObservableObject {
         }
         return csvArray
     }
-    
-//    //広告をつくるブロック
-//    func addBannerViewToView(bannerView: GADBannerView) {
-//        bannerView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(bannerView)
-//        view.addConstraints(
-//            [NSLayoutConstraint(item: bannerView,
-//                                attribute: .bottom,
-//                                relatedBy: .equal,
-//                                toItem: view.safeAreaLayoutGuide,
-//                                attribute: .bottom,
-//                                multiplier: 1,
-//                                constant: 0),
-//             NSLayoutConstraint(item: bannerView,
-//                                 attribute: .centerX,
-//                                 relatedBy: .equal,
-//                                 toItem: view,
-//                                 attribute: .centerX,
-//                                 multiplier: 1,
-//                                 constant: 0)
-//            
-//        ])
-        
-        
-    
-    
-    
-    
- 
 }

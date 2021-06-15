@@ -21,7 +21,9 @@
 		233EF4D0264257460055C5B5 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4CF264257460055C5B5 /* ScoreView.swift */; };
 		233EF4D32642576D0055C5B5 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233EF4D22642576D0055C5B5 /* QuizView.swift */; };
 		2352716F266F186500F5A57D /* ArrayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2352716E266F186500F5A57D /* ArrayData.swift */; };
+		235BE7EA26784D6300622CDE /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BE7E926784D6300622CDE /* LevelData.swift */; };
 		236011BF26675C2D0000CB4E /* BackViewIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236011BE26675C2D0000CB4E /* BackViewIView.swift */; };
+		236703FB2677299600FF92DF /* GoogleService-Info (2).plist in Resources */ = {isa = PBXBuildFile; fileRef = 236703FA2677299600FF92DF /* GoogleService-Info (2).plist */; };
 		237D22DB264E29BE004FAF6B /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237D22DA264E29BE004FAF6B /* ExplanationView.swift */; };
 		239660D5265F769B0088CE58 /* quiz1-2.cdv in Resources */ = {isa = PBXBuildFile; fileRef = 239660D4265F769B0088CE58 /* quiz1-2.cdv */; };
 		239660D9265F76B30088CE58 /* quiz1-3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 239660D8265F76B30088CE58 /* quiz1-3.csv */; };
@@ -34,6 +36,7 @@
 		23F7E53726732366009462DF /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7E53626732366009462DF /* GoogleUtilities.framework */; };
 		23F7E5392673236F009462DF /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7E5382673236F009462DF /* GoogleAppMeasurement.xcframework */; };
 		23F7E53C2673237D009462DF /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F7E53B2673237D009462DF /* GoogleMobileAds.xcframework */; };
+		23F7E53F267343FE009462DF /* MultidimensionalArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F7E53E267343FE009462DF /* MultidimensionalArray.swift */; };
 		23FABA4826466D1F0053D0F8 /* quiz2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4726466D1F0053D0F8 /* quiz2.csv */; };
 		23FABA4B26466D480053D0F8 /* quiz3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 23FABA4A26466D480053D0F8 /* quiz3.csv */; };
 		23FABA55264783B70053D0F8 /* ColorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FABA54264783B70053D0F8 /* ColorTestView.swift */; };
@@ -59,7 +62,9 @@
 		233EF4CF264257460055C5B5 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		233EF4D22642576D0055C5B5 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		2352716E266F186500F5A57D /* ArrayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayData.swift; sourceTree = "<group>"; };
+		235BE7E926784D6300622CDE /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
 		236011BE26675C2D0000CB4E /* BackViewIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackViewIView.swift; sourceTree = "<group>"; };
+		236703FA2677299600FF92DF /* GoogleService-Info (2).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (2).plist"; sourceTree = "<group>"; };
 		237D22DA264E29BE004FAF6B /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		239660D4265F769B0088CE58 /* quiz1-2.cdv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-2.cdv"; sourceTree = "<group>"; };
 		239660D8265F76B30088CE58 /* quiz1-3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "quiz1-3.csv"; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 		23F7E53626732366009462DF /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F7E5382673236F009462DF /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
 		23F7E53B2673237D009462DF /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
+		23F7E53E267343FE009462DF /* MultidimensionalArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultidimensionalArray.swift; sourceTree = "<group>"; };
 		23FABA4726466D1F0053D0F8 /* quiz2.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz2.csv; sourceTree = "<group>"; };
 		23FABA4A26466D480053D0F8 /* quiz3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = quiz3.csv; sourceTree = "<group>"; };
 		23FABA54264783B70053D0F8 /* ColorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTestView.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				230F464D264641E200201629 /* image */,
 				233EF4BD26424FE80055C5B5 /* Assets.xcassets */,
 				233EF4C226424FE80055C5B5 /* Info.plist */,
+				236703FA2677299600FF92DF /* GoogleService-Info (2).plist */,
 				233EF4BF26424FE80055C5B5 /* Preview Content */,
 			);
 			path = QuizApp;
@@ -211,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				230F462A26425F1200201629 /* QuizData.swift */,
+				235BE7E926784D6300622CDE /* LevelData.swift */,
 				2352716E266F186500F5A57D /* ArrayData.swift */,
 			);
 			path = Model;
@@ -220,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				23FABA54264783B70053D0F8 /* ColorTestView.swift */,
+				23F7E53E267343FE009462DF /* MultidimensionalArray.swift */,
 				23FABA6B2647A60D0053D0F8 /* AdView.swift */,
 				237D22DA264E29BE004FAF6B /* ExplanationView.swift */,
 				236011BE26675C2D0000CB4E /* BackViewIView.swift */,
@@ -318,6 +327,7 @@
 				23FABA4B26466D480053D0F8 /* quiz3.csv in Resources */,
 				233EF4BE26424FE80055C5B5 /* Assets.xcassets in Resources */,
 				230F46432644CF1200201629 /* quiz1.csv in Resources */,
+				236703FB2677299600FF92DF /* GoogleService-Info (2).plist in Resources */,
 				239EE228265F68DC00D24B9E /* quiz1-1.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,8 +384,10 @@
 				2352716F266F186500F5A57D /* ArrayData.swift in Sources */,
 				230F462B26425F1200201629 /* QuizData.swift in Sources */,
 				23FABA55264783B70053D0F8 /* ColorTestView.swift in Sources */,
+				23F7E53F267343FE009462DF /* MultidimensionalArray.swift in Sources */,
 				233EF4CA264256990055C5B5 /* HomeView.swift in Sources */,
 				233EF4BC26424FE80055C5B5 /* ContentView.swift in Sources */,
+				235BE7EA26784D6300622CDE /* LevelData.swift in Sources */,
 				230F46462644D06A00201629 /* QuizViewModel.swift in Sources */,
 				23FABA6C2647A60D0053D0F8 /* AdView.swift in Sources */,
 				233EF4BA26424FE80055C5B5 /* QuizAppApp.swift in Sources */,

@@ -35,7 +35,7 @@ struct ScoreView: View {
                     .fontWeight(.semibold)
                     .padding(.vertical, 40.0)
                     .onAppear(){
-                        quiz.score = quizVM.correctCount
+//                        quiz.score = quizVM.correctCount
                     }
                 
                 Spacer()
