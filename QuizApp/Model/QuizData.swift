@@ -31,8 +31,37 @@ struct  QuizData: Codable,Identifiable {
     
     //正解した問題数
     var score :Int
-
+    
+    init(quizNumberLabel: Int,quizTextView:String,answerButton1: String,answerButton2: String,answerButton3: String,answerButton4: String,explanation :String,tag: Int,judgeImageView: Int,score :Int) {
+        
+        self.quizNumberLabel = quizNumberLabel
+        self.quizTextView = quizTextView
+        self.answerButton1 = answerButton1
+        self.answerButton2 = answerButton2
+        self.answerButton3 = answerButton3
+        self.answerButton4 = answerButton4
+        self.explanation = explanation
+        self.tag = tag
+        self.judgeImageView = judgeImageView
+        self.score = score
+        
+        
     }
+    
+    static var `default` : QuizData {
+        QuizData(
+                    quizNumberLabel: 0,
+                    quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
+                    answerButton1: "選択1",
+                    answerButton2: "選択2",
+                    answerButton3: "選択3",
+                    answerButton4: "選択4",
+                   explanation: "解説", tag: 0,
+                   judgeImageView: 0, score: 0)
+    }
+    
+    
+}
 
 
 ///Codable対応変換

@@ -12,6 +12,16 @@ class QuizViewModel: ObservableObject {
     //広告
     @Published var bannerView: GADBannerView!
     
+    
+    @Published var categoriesArray: [CategoryData] = makeData()
+    {
+        didSet {
+            
+            UserDefaults.standard.setEncoded(categoriesArray, forKey: "categoriesArray")
+            
+        }
+    }
+    
     //csvファイルにすべてのデータを読み込む箱
     @Published var csvArray: [String] = []
     {
@@ -47,8 +57,11 @@ class QuizViewModel: ObservableObject {
         
         csvArray = UserDefaults.standard.decodedObject([String].self, forKey: "csvArray") ?? []
         quizArray = UserDefaults.standard.decodedObject([String].self, forKey: "quizArray") ?? []
+        categoriesArray = UserDefaults.standard.decodedObject([CategoryData].self, forKey: "categoriesArray") ?? []
         
     }
+    
+    
     
     //csvファイルの問題データ入れ込み
     func loadCSV(fileName: String) -> [String] {
