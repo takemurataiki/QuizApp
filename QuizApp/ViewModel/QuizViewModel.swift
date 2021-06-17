@@ -13,7 +13,7 @@ class QuizViewModel: ObservableObject {
     @Published var bannerView: GADBannerView!
     
     
-    @Published var categoriesArray: [CategoryData] = makeData()
+    @Published var categoriesArray: [CategoryData] = []
     {
         didSet {
             

@@ -43,13 +43,14 @@ struct SelectCategoryView: View {
                 Spacer()
                 
                     List {
-                        ForEach(0 ..< quizVM.csvArray.count,id:\.self) { index in
+                        ForEach(quizVM.categoriesArray) { index in
                             Button(action: {
                                 levelButtonAction()
                                 
                             }, label: {
                                 HStack {
-                                    Text("1-\(index+1)")
+                                    
+                                    Text("\(index.title)")
                                     Spacer()
                                     Text("\(quiz.score)/5")
                                         .padding(.trailing, 10.0)
@@ -62,7 +63,7 @@ struct SelectCategoryView: View {
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
                     .onAppear() {
-                        
+                        quizVM.categoriesArray = makeData()
                     }
                
 
