@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct BackViewIView: View {
-   
+    @State private var isActive = false
     
     var body: some View {
         NavigationView {
-            NavigationLink(destination: FirstView()) {
+            NavigationLink(destination: FirstView(), isActive: $isActive) {
                 Text("Forward to First View.")
             }
             .isDetailLink(false)

@@ -13,7 +13,7 @@ class QuizViewModel: ObservableObject {
     @Published var bannerView: GADBannerView!
     
     
-    @Published var categoriesArray: [CategoryData] = makeData()
+    @Published var categoriesArray: [Category] = makeData()
     {
         didSet {
             
@@ -57,7 +57,7 @@ class QuizViewModel: ObservableObject {
         
         csvArray = UserDefaults.standard.decodedObject([String].self, forKey: "csvArray") ?? []
         quizArray = UserDefaults.standard.decodedObject([String].self, forKey: "quizArray") ?? []
-        categoriesArray = UserDefaults.standard.decodedObject([CategoryData].self, forKey: "categoriesArray") ?? []
+        categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? []
         
     }
     
@@ -84,5 +84,4 @@ extension Collection {
   }
     
 }
-
 

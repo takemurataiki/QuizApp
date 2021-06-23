@@ -81,7 +81,7 @@ struct SelectLevelView: View {
                 Spacer()
                 AdView().frame(width: .infinity, height: 50)
                 
-                NavigationLink(destination: SelectCategoryView(quiz: QuizData.default, category: CategoryData.default, isShow: $btnTap),isActive: $btnTap){
+                NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Category.default, isShow: $btnTap),isActive: $btnTap){
                     EmptyView()
                 }
                 .isDetailLink(false)

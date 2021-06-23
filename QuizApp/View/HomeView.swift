@@ -19,7 +19,7 @@ struct HomeView: View {
             ZStack {
                 Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                 VStack {
-                    Text("◯◯クイズ")
+                    Text("◯◯検定")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color.black)
@@ -37,18 +37,18 @@ struct HomeView: View {
                     }
                     .isDetailLink(false)
                     
-                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("復習")
-                            .padding(.all, 30.0)
-                            .frame(width: 300.0, height: 80.0)
-                            .background(Color.white)
-                    }
-                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("テスト")
-                            .padding(.all, 30.0)
-                            .frame(width: 300.0, height: 80.0)
-                            .background(Color.white)
-                    }
+//                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+//                        Text("復習")
+//                            .padding(.all, 30.0)
+//                            .frame(width: 300.0, height: 80.0)
+//                            .background(Color.white)
+//                    }
+//                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+//                        Text("テスト")
+//                            .padding(.all, 30.0)
+//                            .frame(width: 300.0, height: 80.0)
+//                            .background(Color.white)
+//                    }
                     Spacer()
 
                     AdView().frame(width:.infinity, height: 50)

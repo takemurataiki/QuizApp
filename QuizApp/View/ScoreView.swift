@@ -11,9 +11,8 @@ struct ScoreView: View {
     //画面遷移
     @Binding var isShow: Bool
     
-    
-    @State var quiz: QuizData
-    @Binding var category: CategoryData
+    @State var quiz: Question
+    @Binding var category: Category
     
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -83,8 +82,8 @@ struct ScoreView: View {
 struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         ScoreView(isShow: .constant(false),
-                  quiz: QuizData.default,
-                  category: .constant(CategoryData(score: 0, title: "カテゴリ")))
+                  quiz: Question.default,
+                  category: .constant(Category(score: 0, title: "カテゴリ")))
             .environmentObject(QuizViewModel())
     }
 }

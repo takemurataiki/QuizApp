@@ -12,8 +12,8 @@ struct QuizView: View {
     @State var btnTapp:Bool = false
     @Binding var isShow: Bool
     //Model
-    @State var quiz: QuizData
-    @Binding var category: CategoryData
+    @State var quiz: Question
+    @Binding var category: Category
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -33,7 +33,7 @@ struct QuizView: View {
         flag = true
         btnTapp = true
         //正解判定
-        if quiz.tag == Int(quizVM.quizArray[1]) {
+        if quiz.selectAnswer == Int(quizVM.quizArray[1]) {
             //スコアカウント
             category.score += 1
             //◯画像表示
@@ -60,7 +60,7 @@ struct QuizView: View {
         if quizVM.quizCount < quizVM.csvArray.count {
             quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
             quiz.quizNumberLabel = quizVM.quizCount + 1
-            quiz.quizTextView = quizVM.quizArray[0]
+            quiz.question = quizVM.quizArray[0]
             quiz.answerButton1 = quizVM.quizArray[2]
             quiz.answerButton2 = quizVM.quizArray[3]
             quiz.answerButton3 = quizVM.quizArray[4]
@@ -92,8 +92,8 @@ struct QuizView: View {
                         HStack {
                             Text("【回答】")
                             
-                            Text("\(quiz.tag),")
-                            Text(quizVM.quizArray[quiz.tag+1])
+                            Text("\(quiz.selectAnswer),")
+                            Text(quizVM.quizArray[quiz.selectAnswer+1])
                             Spacer()
                             
                         }
@@ -138,14 +138,14 @@ struct QuizView: View {
                         Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                         VStack {
                             
-                            Text("第\(quiz.quizNumberLabel)問")
+                            Text("Q\(quiz.quizNumberLabel)")
                                 .padding(.vertical, 20.0)
                                 
                             
                             
                             
                             ZStack {
-                                Text(quiz.quizTextView).lineLimit(nil)
+                                Text(quiz.question).lineLimit(nil)
                                     
                  
                             }
@@ -157,9 +157,9 @@ struct QuizView: View {
                             
                             VStack {
                                 Button(action: {
-                                    quiz.tag = 1
+                                    quiz.selectAnswer = 1
                                     btnAction()
-                                    print("スコア：\(quizVM.correctCount)")
+                                    
                                     }) {
                                     HStack {
                                         Text("1,")
@@ -176,9 +176,9 @@ struct QuizView: View {
                                 
                                 Spacer()
                                 Button(action: {
-                                    quiz.tag = 2
+                                    quiz.selectAnswer = 2
                                     btnAction()
-                                    print("スコア：\(quizVM.correctCount)")
+                                    
                                     
                                 }, label: {
                                     HStack {
@@ -197,11 +197,9 @@ struct QuizView: View {
                                 .disabled(btnTapp)
                                 Spacer()
                                 Button(action: {
-                                    quiz.tag = 3
+                                    quiz.selectAnswer = 3
                                     btnAction()
-                                    print("スコア：\(quizVM.correctCount)")
-                                    
-                                    
+                                   
                                 }, label: {
                                     HStack {
                                         Text("3,")
@@ -219,11 +217,9 @@ struct QuizView: View {
                                 Spacer()
                                 Button(action: {
                                     
-                                    quiz.tag = 4
+                                    quiz.selectAnswer = 4
                                     btnAction()
-                                    print("スコア：\(quizVM.correctCount)")
-                                    
-                                    
+                                   
                                 }, label: {
                                     HStack {
                                         Text("4,")
@@ -245,7 +241,7 @@ struct QuizView: View {
                         
                             Spacer()
                         
-                            NavigationLink(destination: ScoreView(isShow: self.$isShow, quiz: QuizData.default, category: $category), isActive: $nextPage) {
+                            NavigationLink(destination: ScoreView(isShow: self.$isShow, quiz: Question.default, category: $category), isActive: $nextPage) {
                                 EmptyView()
                             }
                             .isDetailLink(false)
@@ -262,7 +258,7 @@ struct QuizView: View {
                 quizVM.quizCount = 0
                 //問題データ入れ込み
 //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectQuiz)")
-                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1")
+                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
                 
                 //問題をランダムにする
                 quizVM.csvArray.shuffle()
@@ -272,7 +268,7 @@ struct QuizView: View {
                 
                 //問題データ代入
                 quiz.quizNumberLabel = quizVM.quizCount + 1
-                quiz.quizTextView = quizVM.quizArray[0]
+                quiz.question = quizVM.quizArray[0]
 
                 quiz.answerButton1 = quizVM.quizArray[2]
                 quiz.answerButton2 = quizVM.quizArray[3]
@@ -294,8 +290,8 @@ struct QuizView: View {
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
         QuizView(isShow: .constant(false),
-                 quiz: QuizData.default,
-                 category: .constant(CategoryData(score: 0, title: "カテゴリ")))
+                 quiz: Question.default,
+                 category: .constant(Category(score: 0, title: "カテゴリ")))
             .environmentObject(QuizViewModel())
     }
     

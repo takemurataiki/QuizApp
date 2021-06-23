@@ -7,24 +7,31 @@
 
 import Foundation
 
-struct  CategoryData: Codable,Identifiable {
+struct  Category: Codable,Identifiable {
     var id = UUID()
     //正解した問題数
     var score :Int
     //カテゴリータイトル
     var title: String
     
-    static var `default` : CategoryData {
-        CategoryData(score: 0, title: "")
+    
+    
+    init(score :Int,title: String){
+        self.score = score
+        self.title = title
+    }
+    
+    static var `default` : Category {
+        Category(score: 0, title: "")
     }
     
 }
 
-func makeData() -> [CategoryData] {
-    var dataArray:[CategoryData] = []
+func makeData() -> [Category] {
+    var dataArray:[Category] = []
 
-    dataArray.append(CategoryData(score: 0, title: "カテゴリ1"))
-    dataArray.append(CategoryData(score: 1, title: "カテゴリ2"))
+    dataArray.append(Category(score: 0, title: "カテゴリ1"))
+    dataArray.append(Category(score: 1, title: "カテゴリ2"))
     
     
     return dataArray
@@ -32,7 +39,7 @@ func makeData() -> [CategoryData] {
 
 
 ///Codable対応変換
-extension CategoryData {
+extension Category {
         /// ①変換対象プロパティ指定
             enum CodingKeys: CodingKey {
                 case id
@@ -53,10 +60,34 @@ extension CategoryData {
                 var container = encoder.container(keyedBy: CodingKeys.self)
                 try container.encode(id, forKey: .id)
                 try container.encode(score, forKey: .score)
-                try container.encode(score, forKey: .score)
+                try container.encode(title, forKey: .title)
                 
                 
             }
     
 }
+
+
+///UserDefaults 構造体保存　拡張
+extension UserDefaults {
+    ///保存
+  func setEncoded<T: Encodable>(_ value: T, forKey key: String) {
+    guard let data = try? JSONEncoder().encode(value) else {
+       print("Can not Encode to JSON.")
+       return
+    }
+
+    set(data, forKey: key)
+  }
+
+    ///取り出し
+  func decodedObject<T: Decodable>(_ type: T.Type, forKey key: String) -> T? {
+    guard let data = data(forKey: key) else {
+      return nil
+    }
+
+    return try? JSONDecoder().decode(type, from: data)
+  }
+}
+
 

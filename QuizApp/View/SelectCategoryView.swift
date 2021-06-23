@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SelectCategoryView: View {
     //Model
-    @State var quiz: QuizData
-    @State var category: CategoryData
+    @State var quiz: Question
+    @State var category: Category
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -44,47 +44,42 @@ struct SelectCategoryView: View {
                 
                     List {
                         ForEach(quizVM.categoriesArray.indexed(), id: \.1.id) { index,item in
-                            
+                            NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                quiz: Question.default,
+                                                                category: $quizVM.categoriesArray[index])){
                             Button(action: {
                                 levelButtonAction()
                                 
                             }, label: {
                                 HStack {
-                                    
+                                    Text("\(index+1)")
                                     Text("\(item.title)")
                                     Spacer()
-                                    Text("\(item.score)/5   ")
+                                    Text("\(item.score)/5")
                                         .padding(.trailing, 10.0)
                                     
                                 }
                                 
                             })
                             
-                            
+                               
+                                        }
+                            .isDetailLink(false)
                         }
                         .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
                     .onAppear() {
-                        quizVM.categoriesArray = makeData()
+                       
                     }
                     
 
                 
-                    
-                    
-                   
                 Spacer()
                 AdView().frame(width: .infinity, height: 50)
                 
-                NavigationLink(destination:
-                                QuizView(
-                                            isShow: $btnTap,
-                                            quiz: QuizData.default,
-                                    category: $category),
-                                        isActive: $btnTap){
-                    EmptyView()
-                            }.isDetailLink(false)
+                
+                   
 
                 
             }
@@ -94,7 +89,7 @@ struct SelectCategoryView: View {
 
 struct SelectCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectCategoryView(quiz: QuizData.default, category: CategoryData.default, isShow: .constant(false))
+        SelectCategoryView(quiz: Question.default, category: Category.default, isShow: .constant(false))
             .environmentObject(QuizViewModel())
     }
 }
