@@ -13,7 +13,7 @@ struct QuizView: View {
     @Binding var isShow: Bool
     //Model
     @State var quiz: QuizData
-    @State var category: CategoryData
+    @Binding var category: CategoryData
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -35,7 +35,7 @@ struct QuizView: View {
         //正解判定
         if quiz.tag == Int(quizVM.quizArray[1]) {
             //スコアカウント
-            quiz.score += 1
+            category.score += 1
             //◯画像表示
             judgeImage = "correct"
             print("正解")
@@ -245,15 +245,7 @@ struct QuizView: View {
                         
                             Spacer()
                         
-                            NavigationLink(destination: ScoreView(isShow: self.$isShow, quiz: QuizData(
-                                                                  quizNumberLabel: 0,
-                                                                  quizTextView: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis ",
-                                                                  answerButton1: "選択1",
-                                                                  answerButton2: "選択2",
-                                                                  answerButton3: "選択3",
-                                                                  answerButton4: "選択4",
-                                                                    explanation: "解説", tag: 0,
-                                                                    judgeImageView: 0, score: 0)), isActive: $nextPage) {
+                            NavigationLink(destination: ScoreView(isShow: self.$isShow, quiz: QuizData.default, category: $category), isActive: $nextPage) {
                                 EmptyView()
                             }
                             .isDetailLink(false)
@@ -303,7 +295,9 @@ struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
         QuizView(isShow: .constant(false),
                  quiz: QuizData.default,
-                 category: CategoryData.default)
+                 category: .constant(CategoryData(score: 0, title: "カテゴリ")))
             .environmentObject(QuizViewModel())
     }
+    
+    
 }

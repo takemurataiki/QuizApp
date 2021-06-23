@@ -13,7 +13,7 @@ class QuizViewModel: ObservableObject {
     @Published var bannerView: GADBannerView!
     
     
-    @Published var categoriesArray: [CategoryData] = []
+    @Published var categoriesArray: [CategoryData] = makeData()
     {
         didSet {
             
@@ -77,3 +77,12 @@ class QuizViewModel: ObservableObject {
         return csvArray
     }
 }
+
+extension Collection {
+  func indexed() -> Array<(offset: Int, element: Element)> {
+    return Array(self.enumerated())
+  }
+    
+}
+
+

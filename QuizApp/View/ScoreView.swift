@@ -13,6 +13,8 @@ struct ScoreView: View {
     
     
     @State var quiz: QuizData
+    @Binding var category: CategoryData
+    
     @EnvironmentObject var quizVM: QuizViewModel
     
     
@@ -30,7 +32,7 @@ struct ScoreView: View {
             VStack {
                 
                 
-                Text("\(quiz.score)問正解！")
+                Text("\(category.score)問正解！")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .padding(.vertical, 40.0)
@@ -81,7 +83,8 @@ struct ScoreView: View {
 struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         ScoreView(isShow: .constant(false),
-                  quiz: QuizData.default)
+                  quiz: QuizData.default,
+                  category: .constant(CategoryData(score: 0, title: "カテゴリ")))
             .environmentObject(QuizViewModel())
     }
 }

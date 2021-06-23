@@ -11,7 +11,7 @@ struct  CategoryData: Codable,Identifiable {
     var id = UUID()
     //正解した問題数
     var score :Int
-    
+    //カテゴリータイトル
     var title: String
     
     static var `default` : CategoryData {
