@@ -34,8 +34,13 @@ struct QuizView: View {
         btnTapp = true
         //正解判定
         if quiz.selectAnswer == Int(quizVM.quizArray[1]) {
-            //スコアカウント
-            category.score += 1
+            if category.score <= 5{
+                //スコアカウント
+                category.score += 1
+            }else {
+                category.score = 5
+            }
+            
             //◯画像表示
             judgeImage = "correct"
             print("正解")
@@ -45,6 +50,7 @@ struct QuizView: View {
             print("不正解")
         }
         
+        
 //        //0.5秒後に非表示にする
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 //            self.judgeImage = ""
@@ -53,6 +59,7 @@ struct QuizView: View {
 //        }
         
     }
+    
     
     ///次の問題を表示
     func nextQuiz() {
