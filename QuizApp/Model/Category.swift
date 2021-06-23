@@ -30,8 +30,8 @@ struct  Category: Codable,Identifiable {
 func makeData() -> [Category] {
     var dataArray:[Category] = []
 
-    dataArray.append(Category(score: 0, title: "カテゴリ1"))
-    dataArray.append(Category(score: 1, title: "カテゴリ2"))
+    dataArray.append(Category(score: 0, title: "カテゴリ"))
+    dataArray.append(Category(score: 1, title: "カテゴリ"))
     
     
     return dataArray

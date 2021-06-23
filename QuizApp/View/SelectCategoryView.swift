@@ -52,8 +52,7 @@ struct SelectCategoryView: View {
                                 
                             }, label: {
                                 HStack {
-                                    Text("\(index+1)")
-                                    Text("\(item.title)")
+                                    Text("\(item.title)\(index+1)")
                                     Spacer()
                                     Text("\(item.score)/5")
                                         .padding(.trailing, 10.0)
@@ -70,7 +69,10 @@ struct SelectCategoryView: View {
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
                     .onAppear() {
-                       
+                        
+                    }
+                    .onDisappear(){
+                        quizVM.categoriesArray = makeData()
                     }
                     
 
