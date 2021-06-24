@@ -54,6 +54,8 @@ struct SelectCategoryView: View {
                                 HStack {
                                     Text("\(item.title)\(index+1)")
                                     Spacer()
+                                    Image(systemName: item.mark)
+                                        .foregroundColor(Color.yellow)
                                     Text("\(item.score)/5")
                                         .padding(.trailing, 10.0)
                                     
@@ -72,7 +74,7 @@ struct SelectCategoryView: View {
                         
                     }
                     .onDisappear(){
-                        quizVM.categoriesArray = makeData()
+                        
                     }
                     
 

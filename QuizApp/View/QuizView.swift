@@ -37,6 +37,10 @@ struct QuizView: View {
             if category.score <= 5{
                 //スコアカウント
                 category.score += 1
+                if category.score == 5 {
+                category.mark = "star.fill"
+                
+                }
             }else {
                 category.score = 5
             }
@@ -262,6 +266,9 @@ struct QuizView: View {
             }
             .onAppear(){
                 
+                category.score = 0
+                category.mark = ""
+                
                 quizVM.quizCount = 0
                 //問題データ入れ込み
 //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectQuiz)")
@@ -298,7 +305,7 @@ struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
         QuizView(isShow: .constant(false),
                  quiz: Question.default,
-                 category: .constant(Category(score: 0, title: "カテゴリ")))
+                 category: .constant(Category.default))
             .environmentObject(QuizViewModel())
     }
     

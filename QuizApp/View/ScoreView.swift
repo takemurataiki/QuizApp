@@ -41,7 +41,11 @@ struct ScoreView: View {
                 
                 Spacer()
                 
-                Button(action: {self.isShow = false}){
+                Button(action: {
+                        self.isShow = false
+                       
+                    
+                }){
                     Text("トップに戻る")
                         .padding(.all, 30.0)
                         .frame(width: 300.0, height: 70.0)
@@ -83,7 +87,7 @@ struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         ScoreView(isShow: .constant(false),
                   quiz: Question.default,
-                  category: .constant(Category(score: 0, title: "カテゴリ")))
+                  category: .constant(Category.default))
             .environmentObject(QuizViewModel())
     }
 }

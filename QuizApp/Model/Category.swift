@@ -14,15 +14,19 @@ struct  Category: Codable,Identifiable {
     //カテゴリータイトル
     var title: String
     
+    // 完答マーク
+    var mark: String
     
     
-    init(score :Int,title: String){
+    
+    init(score :Int,title: String,mark: String){
         self.score = score
         self.title = title
+        self.mark = mark
     }
     
     static var `default` : Category {
-        Category(score: 0, title: "")
+        Category(score: 0, title: "", mark: "")
     }
     
 }
@@ -30,8 +34,8 @@ struct  Category: Codable,Identifiable {
 func makeData() -> [Category] {
     var dataArray:[Category] = []
 
-    dataArray.append(Category(score: 0, title: "カテゴリ"))
-    dataArray.append(Category(score: 1, title: "カテゴリ"))
+    dataArray.append(Category(score: 0, title: "カテゴリ", mark: ""))
+    dataArray.append(Category(score: 1, title: "カテゴリ", mark: ""))
     
     
     return dataArray
@@ -45,6 +49,7 @@ extension Category {
                 case id
                 case score
                 case title
+                case mark
             }
         
         /// ②プロパティのdecode（復号化）アクション
@@ -53,6 +58,7 @@ extension Category {
                 id = try container.decode(UUID.self, forKey: .id)
                 score = try container.decode(Int.self, forKey: .score)
                 title = try container.decode(String.self, forKey: .title)
+                mark = try container.decode(String.self, forKey: .mark)
             }
         
         /// ③プロパティのencode（コード化）アクション
@@ -61,6 +67,7 @@ extension Category {
                 try container.encode(id, forKey: .id)
                 try container.encode(score, forKey: .score)
                 try container.encode(title, forKey: .title)
+                try container.encode(mark, forKey: .mark)
                 
                 
             }

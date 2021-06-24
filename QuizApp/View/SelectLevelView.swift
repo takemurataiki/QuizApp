@@ -36,8 +36,6 @@ struct SelectLevelView: View {
                     .lineLimit(nil)
                     .padding(.all, 30.0)
                     
-                    
-                Spacer()
                 VStack {
                     
                     Button(action: {
@@ -46,7 +44,7 @@ struct SelectLevelView: View {
                     }, label: {
                         Text("初級")
                             .padding(.all, 30.0)
-                            .frame(width: 300.0)
+                            .frame(width: 300)
                             .background(Color.white)
                     
                     })
@@ -77,17 +75,22 @@ struct SelectLevelView: View {
                     })
                 }
                 .padding(.horizontal, 40.0)
-                .frame(height: 350.0)
-                Spacer()
-                AdView().frame(width: .infinity, height: 50)
+                .frame(height: 320.0)
+                
+                
                 
                 NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Category.default, isShow: $btnTap),isActive: $btnTap){
                     EmptyView()
                 }
                 .isDetailLink(false)
-                
+                Spacer()
+                AdView()
+                    .frame(width: 320, height: 50)
+                    
                 
             }
+            
+            
         }
         
         
