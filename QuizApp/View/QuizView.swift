@@ -271,8 +271,8 @@ struct QuizView: View {
                 
                 quizVM.quizCount = 0
                 //問題データ入れ込み
-//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectQuiz)")
-                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
+                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)")
+//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
                 
                 //問題をランダムにする
                 quizVM.csvArray.shuffle()
@@ -290,7 +290,7 @@ struct QuizView: View {
                 quiz.answerButton4 = quizVM.quizArray[5]
                 quiz.explanation = quizVM.quizArray[6]
                 
-                print("選択したレベル\(quizVM.selectLevel)-\(quizVM.selectQuiz)")
+                print("選択したレベル\(quizVM.selectLevel)-\(quizVM.selectCategory)")
                 
                 
         }

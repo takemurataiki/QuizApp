@@ -23,7 +23,6 @@ struct SelectCategoryView: View {
     
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
-        quizVM.selectQuiz = selectTag
         btnTap = true
     }
     
@@ -48,6 +47,7 @@ struct SelectCategoryView: View {
                                                                 quiz: Question.default,
                                                                 category: $quizVM.categoriesArray[index])){
                             Button(action: {
+                                quizVM.selectCategory = index
                                 levelButtonAction()
                                 
                             }, label: {
@@ -70,21 +70,13 @@ struct SelectCategoryView: View {
                         .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
-                    .onAppear() {
-                        
-                    }
-                    .onDisappear(){
-                        
-                    }
                     
-
-                
                 Spacer()
                 AdView().frame(width: .infinity, height: 50)
                 
-                
-                   
-
+          
+            }
+            .onDisappear(){
                 
             }
         }

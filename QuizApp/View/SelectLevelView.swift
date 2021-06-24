@@ -51,7 +51,6 @@ struct SelectLevelView: View {
                     
                     Button(action: {
                         selectTag = 2
-                        
                         levelButtonAction()
                         
                     }, label: {

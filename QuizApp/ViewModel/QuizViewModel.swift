@@ -16,7 +16,7 @@ class QuizViewModel: ObservableObject {
     @Published var categoriesArray: [Category] = makeData()
     {
         didSet {
-            
+           
             UserDefaults.standard.setEncoded(categoriesArray, forKey: "categoriesArray")
             
         }
@@ -24,22 +24,10 @@ class QuizViewModel: ObservableObject {
     
     //csvファイルにすべてのデータを読み込む箱
     @Published var csvArray: [String] = []
-    {
-        didSet {
-            
-            UserDefaults.standard.setEncoded(csvArray, forKey: "csvArray")
-            
-        }
-    }
+   
     //一問分のデータを入れる箱
     @Published var quizArray: [String] = []
-    {
-        didSet {
-            
-            UserDefaults.standard.setEncoded(quizArray, forKey: "quizArray")
-            
-        }
-    }
+   
     
     //問題数
     @Published var quizCount = 0
@@ -50,14 +38,13 @@ class QuizViewModel: ObservableObject {
     //どのレベルを選択したか
     @Published var selectLevel = 0
     
-    //どのレベルを選択したか
-    @Published var selectQuiz = 0
+    //どのカテゴリを選択したか
+    @Published var selectCategory = 0
     
     init() {
         
-        csvArray = UserDefaults.standard.decodedObject([String].self, forKey: "csvArray") ?? []
-        quizArray = UserDefaults.standard.decodedObject([String].self, forKey: "quizArray") ?? []
         categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? []
+        categoriesArray = makeData()
         
     }
     
