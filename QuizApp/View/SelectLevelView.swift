@@ -35,7 +35,9 @@ struct SelectLevelView: View {
                     .fontWeight(.regular)
                     .lineLimit(nil)
                     .padding(.all, 30.0)
-                    
+                
+                Spacer()
+                
                 VStack {
                     
                     Button(action: {
@@ -43,9 +45,9 @@ struct SelectLevelView: View {
                         levelButtonAction()
                     }, label: {
                         Text("初級")
-                            .padding(.all, 30.0)
-                            .frame(width: 300)
+                            .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .padding(.vertical, 10.0)
                     
                     })
                     
@@ -55,9 +57,9 @@ struct SelectLevelView: View {
                         
                     }, label: {
                         Text("中級")
-                            .padding(.all, 30.0)
-                            .frame(width: 300.0)
+                            .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .padding(.vertical, 10.0)
                     
                     })
                     
@@ -67,26 +69,26 @@ struct SelectLevelView: View {
                         levelButtonAction()
                     }, label: {
                         Text("上級")
-                            .padding(.all, 30.0)
-                            .frame(width: 300.0)
+                            .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .padding(.vertical, 10.0)
                     
                     })
                 }
-                .padding(.horizontal, 40.0)
-                .frame(height: 320.0)
+                .frame(height: 370.0)
+                .padding(.all, 20.0)
                 
                 
                 
+                
+                Spacer()
+                AdView()
+                    .frame(maxWidth:.infinity, maxHeight: 60.0)
+                    
                 NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Category.default, isShow: $btnTap),isActive: $btnTap){
                     EmptyView()
                 }
                 .isDetailLink(false)
-                Spacer()
-                AdView()
-                    .frame(width: 320, height: 50)
-                    
-                
             }
             
             

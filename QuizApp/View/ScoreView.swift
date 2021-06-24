@@ -72,7 +72,7 @@ struct ScoreView: View {
                 
                 Spacer()
                 
-                AdView().frame(width: .infinity, height: 50)
+                    .frame(maxWidth:.infinity, maxHeight: 60.0)
                 
                 
                 

@@ -31,11 +31,12 @@ struct HomeView: View {
                     //スタートボタン
                     NavigationLink(destination: SelectLevelView()){
                         Text("スタート")
-                            .padding(.all, 30.0)
-                            .frame(width: 300.0, height: 80.0)
+                            .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
                     }
                     .isDetailLink(false)
+                    .padding(.all, 20.0)
+
                     
 //                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
 //                        Text("復習")
@@ -51,7 +52,8 @@ struct HomeView: View {
 //                    }
                     Spacer()
 
-                    AdView().frame(width:.infinity, height: 50)
+                    AdView()
+                        .frame(maxWidth:.infinity, maxHeight: 60.0)
                 }
 
 

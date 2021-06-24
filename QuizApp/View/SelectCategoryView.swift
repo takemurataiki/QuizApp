@@ -72,7 +72,9 @@ struct SelectCategoryView: View {
                     .listStyle(PlainListStyle())
                     
                 Spacer()
-                AdView().frame(width: .infinity, height: 50)
+                
+                AdView()
+                    .frame(maxWidth:.infinity, maxHeight: 60.0)
                 
           
             }

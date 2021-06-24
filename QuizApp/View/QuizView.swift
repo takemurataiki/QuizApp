@@ -294,7 +294,7 @@ struct QuizView: View {
                 
                 
         }
-            AdView().frame(width: 330, height: 50)
+            AdView().frame(maxWidth:.infinity, maxHeight: 60.0)
         }
 
     }
