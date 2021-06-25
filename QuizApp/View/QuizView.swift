@@ -34,7 +34,7 @@ struct QuizView: View {
         btnTapp = true
         //正解判定
         if quiz.selectAnswer == Int(quizVM.quizArray[1]) {
-            if category.score <= 5{
+            if category.score < 5{
                 //スコアカウント
                 category.score += 1
                 if category.score == 5 {
@@ -271,7 +271,7 @@ struct QuizView: View {
                 
                 quizVM.quizCount = 0
                 //問題データ入れ込み
-                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)")
+                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
 //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
                 
                 //問題をランダムにする
@@ -290,7 +290,7 @@ struct QuizView: View {
                 quiz.answerButton4 = quizVM.quizArray[5]
                 quiz.explanation = quizVM.quizArray[6]
                 
-                print("選択したレベル\(quizVM.selectLevel)-\(quizVM.selectCategory)")
+                print("選択したレベル\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
                 
                 
         }

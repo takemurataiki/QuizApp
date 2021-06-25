@@ -75,7 +75,7 @@ struct SelectLevelView: View {
                     
                     })
                 }
-                .frame(height: 370.0)
+                .frame(height: .infinity)
                 .padding(.all, 20.0)
                 
                 

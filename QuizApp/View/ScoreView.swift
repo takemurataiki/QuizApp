@@ -29,22 +29,15 @@ struct ScoreView: View {
         ZStack {
             Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
             VStack {
-                
-                
+               
                 Text("\(category.score)問正解！")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .padding(.vertical, 40.0)
-                    .onAppear(){
-//                        quiz.score = quizVM.correctCount
-                    }
-                
-                Spacer()
-                
+                   
                 Button(action: {
                         self.isShow = false
-                       
-                    
+                   
                 }){
                     Text("トップに戻る")
                         .padding(.all, 30.0)
@@ -68,12 +61,10 @@ struct ScoreView: View {
                     .background(Color.white)
                 }.padding(.all, 30.0)
                 
-               
-                
                 Spacer()
                 
+                AdView()
                     .frame(maxWidth:.infinity, maxHeight: 60.0)
-                
                 
                 
             }

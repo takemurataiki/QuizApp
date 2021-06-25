@@ -20,7 +20,7 @@ struct SelectCategoryView: View {
     
     
     @State var selectTag = 0
-    
+    @State var selection: Int? = nil
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
         btnTap = true
@@ -43,14 +43,12 @@ struct SelectCategoryView: View {
                 
                     List {
                         ForEach(quizVM.categoriesArray.indexed(), id: \.1.id) { index,item in
-                            NavigationLink(destination:QuizView(isShow: $isShow,
-                                                                quiz: Question.default,
-                                                                category: $quizVM.categoriesArray[index])){
                             Button(action: {
                                 quizVM.selectCategory = index
                                 levelButtonAction()
+                                print("選択したカテゴリ\(quizVM.selectCategory+1)")
                                 
-                            }, label: {
+                            }){
                                 HStack {
                                     Text("\(item.title)\(index+1)")
                                     Spacer()
@@ -58,19 +56,25 @@ struct SelectCategoryView: View {
                                         .foregroundColor(Color.yellow)
                                     Text("\(item.score)/5")
                                         .padding(.trailing, 10.0)
-                                    
                                 }
-                                
-                            })
+                            }
+                            .background(
+                                NavigationLink(destination:QuizView(isShow: $isShow,quiz: Question.default,category: $quizVM.categoriesArray[index])){
+
+                                }
+                                .isDetailLink(false)
+                                .buttonStyle(PlainButtonStyle())
+                            )
+                          
                             
-                               
-                                        }
-                            .isDetailLink(false)
                         }
                         .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                        
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
-                    
+                
+                   
+               
                 Spacer()
                 
                 AdView()
