@@ -9,8 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-
-    
     @EnvironmentObject var quizVM: QuizViewModel
     
     var body: some View {
@@ -19,14 +17,24 @@ struct HomeView: View {
             ZStack {
                 Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                 VStack {
-                    Text("◯◯検定")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.black)
+                    HStack {
+                        Text("ねこ検定")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.black)
+                            .padding(.all, 30.0)
+                    }
+                    Image("ねこ検定")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth:.infinity, maxHeight:.infinity)
                         .padding(.all, 30.0)
+                        
+                    
+                    
+                    
 
-
-                    Spacer()
+                    
 
                     //スタートボタン
                     NavigationLink(destination: SelectLevelView()){

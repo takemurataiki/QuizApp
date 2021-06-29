@@ -13,7 +13,7 @@ class QuizViewModel: ObservableObject {
     @Published var bannerView: GADBannerView!
     
     
-    @Published var categoriesArray: [Category] = makeData()
+    @Published var categoriesArray: [Category] = makeLevel1()
     {
         didSet {
            
@@ -21,6 +21,14 @@ class QuizViewModel: ObservableObject {
             
         }
     }
+    
+    init() {
+        
+        categoriesArray = makeLevel1()
+        categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? []
+        
+    }
+    
     
     //csvファイルにすべてのデータを読み込む箱
     @Published var csvArray: [String] = []
@@ -40,13 +48,6 @@ class QuizViewModel: ObservableObject {
     
     //どのカテゴリを選択したか
     @Published var selectCategory = 0
-    
-    init() {
-        
-        categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? []
-        categoriesArray = makeData()
-        
-    }
     
     
     

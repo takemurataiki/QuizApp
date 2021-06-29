@@ -20,7 +20,7 @@ struct SelectCategoryView: View {
     
     
     @State var selectTag = 0
-    @State var selection: Int? = nil
+    
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
         btnTap = true
@@ -33,7 +33,7 @@ struct SelectCategoryView: View {
             
             VStack {
                 
-                Text("問題カテゴリーを選択してください")
+                Text("レベル\(quizVM.selectLevel)")
                     .font(.title2)
                     .fontWeight(.regular)
                     .lineLimit(nil)
@@ -63,7 +63,7 @@ struct SelectCategoryView: View {
 
                                 }
                                 .isDetailLink(false)
-                                .buttonStyle(PlainButtonStyle())
+//                                .buttonStyle(PlainButtonStyle())
                             )
                           
                             
@@ -73,8 +73,6 @@ struct SelectCategoryView: View {
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
                 
-                   
-               
                 Spacer()
                 
                 AdView()
@@ -82,9 +80,7 @@ struct SelectCategoryView: View {
                 
           
             }
-            .onDisappear(){
-                
-            }
+           
         }
         }
 }

@@ -12,6 +12,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var selectTag = 0
+    @EnvironmentObject var quizVM: QuizViewModel
     
     var body: some View {
         NavigationView {

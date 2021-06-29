@@ -91,7 +91,6 @@ struct SelectLevelView: View {
                 .isDetailLink(false)
             }
             
-            
         }
         
         

@@ -12,7 +12,7 @@ struct BackViewIView: View {
     
     var body: some View {
         NavigationView {
-            NavigationLink(destination: FirstView(), isActive: $isActive) {
+            NavigationLink(destination: FirstView()) {
                 Text("Forward to First View.")
             }
             .isDetailLink(false)
