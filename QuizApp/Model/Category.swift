@@ -31,21 +31,6 @@ struct  Category: Codable,Identifiable {
     
 }
 
-func makeLevel1() -> [Category] {
-    var dataArray:[Category] = []
-    let Category1 = Category(score: 0, title: "カテゴリ1-", mark: "")
-    let Category2 = Category(score: 0, title: "カテゴリ1-", mark: "")
-    let Category3 = Category(score: 0, title: "カテゴリ1-", mark: "")
-
-    dataArray.append(Category1)
-    dataArray.append(Category2)
-    dataArray.append(Category3)
-    
-    return dataArray
-    
-}
-
-
 ///Codable対応変換
 extension Category {
         /// ①変換対象プロパティ指定
@@ -100,5 +85,24 @@ extension UserDefaults {
     return try? JSONDecoder().decode(type, from: data)
   }
 }
+
+
+
+func makeLevel1() -> [Category] {
+    var dataArray:[Category] = []
+    let Category1 = Category(score: 0, title: "カテゴリ1-", mark: "")
+    let Category2 = Category(score: 0, title: "カテゴリ1-", mark: "")
+    let Category3 = Category(score: 0, title: "カテゴリ1-", mark: "")
+
+    dataArray.append(Category1)
+    dataArray.append(Category2)
+    dataArray.append(Category3)
+    
+    return dataArray
+    
+}
+
+
+
 
 
