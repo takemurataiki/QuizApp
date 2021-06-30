@@ -80,6 +80,12 @@ struct SelectCategoryView: View {
                 
           
             }
+            .onAppear(){
+                //初期データ入れ込み
+                if quizVM.categoriesArray.count <= 0 {
+                    quizVM.categoriesArray = makeLevel1()
+                }
+            }
            
         }
         }

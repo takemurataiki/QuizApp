@@ -23,7 +23,9 @@ class QuizViewModel: ObservableObject {
     }
     
     init() {
-        categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? []
+        
+        categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? makeLevel1()
+
         
     }
     
