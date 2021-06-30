@@ -46,7 +46,6 @@ struct SelectCategoryView: View {
                             Button(action: {
                                 quizVM.selectCategory = index
                                 levelButtonAction()
-                                print("選択したカテゴリ\(quizVM.selectCategory+1)")
                                 
                             }){
                                 HStack {
@@ -83,8 +82,15 @@ struct SelectCategoryView: View {
             .onAppear(){
                 //初期データ入れ込み
                 if quizVM.categoriesArray.count <= 0 {
-                    quizVM.categoriesArray = makeLevel1()
+                    if quizVM.selectLevel == 1 {
+                        quizVM.categoriesArray = makeLevel1()
+                    }else if quizVM.selectLevel == 2 {
+                        quizVM.categoriesArray = makeLevel2()
+                    }else if quizVM.selectLevel == 3 {
+                        quizVM.categoriesArray = makeLevel3()
+                    }
                 }
+                    
             }
            
         }

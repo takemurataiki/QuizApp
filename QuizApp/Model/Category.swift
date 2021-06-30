@@ -102,6 +102,34 @@ func makeLevel1() -> [Category] {
     
 }
 
+func makeLevel2() -> [Category] {
+    var dataArray:[Category] = []
+    let Category1 = Category(score: 0, title: "カテゴリ2-", mark: "")
+    let Category2 = Category(score: 0, title: "カテゴリ2-", mark: "")
+    let Category3 = Category(score: 0, title: "カテゴリ2-", mark: "")
+
+    dataArray.append(Category1)
+    dataArray.append(Category2)
+    dataArray.append(Category3)
+    
+    return dataArray
+    
+}
+
+func makeLevel3() -> [Category] {
+    var dataArray:[Category] = []
+    let Category1 = Category(score: 0, title: "カテゴリ3-", mark: "")
+    let Category2 = Category(score: 0, title: "カテゴリ3-", mark: "")
+    let Category3 = Category(score: 0, title: "カテゴリ3-", mark: "")
+
+    dataArray.append(Category1)
+    dataArray.append(Category2)
+    dataArray.append(Category3)
+    
+    return dataArray
+    
+}
+
 
 
 
