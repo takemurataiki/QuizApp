@@ -17,6 +17,7 @@ struct SelectLevelView: View {
     
     
     @EnvironmentObject var quizVM: QuizViewModel
+    @Environment(\.presentationMode) var presentation
     
     //3つのボタンを押した時どのボタンを押したか判断する
     func levelButtonAction() {
@@ -91,7 +92,22 @@ struct SelectLevelView: View {
             }
             
         }
+        .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("難易度")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading:
+                HStack {
+                    Button(action: {
+                        ///前画面に戻る
+                        presentation.wrappedValue.dismiss()
+                        
+                    }){
+                        Image(systemName: "chevron.backward")
+                            .scaleEffect(1.25)
+                    }
+                }
+        )
        
         
     }

@@ -16,8 +16,10 @@ struct QuizView: View {
     @Binding var category1: Level1
     @Binding var category2: Level2
     @Binding var category3: Level3
+    
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
+    @Environment(\.presentationMode) var presentation
     
     
     //問題がなくなった時のスイッチ
@@ -346,6 +348,19 @@ struct QuizView: View {
         }
         .navigationTitle("Q\(quiz.quizNumberLabel)")
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading:
+                HStack {
+                    Button(action: {
+                        ///前画面に戻る
+                        presentation.wrappedValue.dismiss()
+                        
+                    }){
+                        Image(systemName: "chevron.backward")
+                            .scaleEffect(1.25)
+                    }
+                }
+        )
     }
 }
 

@@ -37,11 +37,16 @@ struct ContentView: View {
                             Text("設定")
                         }.tag(1)
                 }
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
+                
+                
                
             }
+//            .navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            
+            
         }
+        
     }
 }
 

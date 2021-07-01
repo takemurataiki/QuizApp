@@ -13,6 +13,7 @@ struct SelectCategoryView: View {
     @State var category: Level1
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
+    @Environment(\.presentationMode) var presentation
     
     //ボタンをタップしたかどうか
     @State var btnTap:Bool = false
@@ -170,6 +171,20 @@ struct SelectCategoryView: View {
            
         }
         .navigationTitle("レベル\(quizVM.selectLevel)")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading:
+                HStack {
+                    Button(action: {
+                        ///前画面に戻る
+                        presentation.wrappedValue.dismiss()
+                        
+                    }){
+                        Image(systemName: "chevron.backward")
+                            .scaleEffect(1.25)
+                    }
+                }
+        )
     }
 }
 

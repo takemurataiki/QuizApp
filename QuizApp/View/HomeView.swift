@@ -13,7 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         
-//        NavigationView {
+
             ZStack {
                 Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                 VStack {
@@ -22,9 +22,13 @@ struct HomeView: View {
                             .font(.largeTitle)
                             .fontWeight(.black)
                             .foregroundColor(Color.black)
-                            .padding(.all, 20.0)
+                            
+                            
                         
                     }
+                    .padding(.top, 20.0)
+                    Spacer()
+                    
                     Image("ねこ検定")
                         .resizable()
                         .scaledToFit()
@@ -70,10 +74,9 @@ struct HomeView: View {
 
 
             }
-            .navigationBarHidden(true)
-
-//        }
-        
+//            .navigationBarHidden(true)
+//            .navigationBarTitleDisplayMode(.inline)
+            
     }
 }
 

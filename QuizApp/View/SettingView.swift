@@ -17,6 +17,7 @@ struct SettingView: View {
                 AdView().frame(width:.infinity, height: 50)
             }
         }
+        
     }
 }
 
