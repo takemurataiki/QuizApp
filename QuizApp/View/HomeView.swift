@@ -20,15 +20,17 @@ struct HomeView: View {
                     HStack {
                         Text("ねこ検定")
                             .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .fontWeight(.black)
                             .foregroundColor(Color.black)
-                            .padding(.all, 30.0)
+                            .padding(.all, 20.0)
+                        
                     }
                     Image("ねこ検定")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth:.infinity, maxHeight:.infinity)
-                        .padding(.all, 30.0)
+                        .padding(.all, 20.0)
+                    
                         
                     
                     
@@ -41,9 +43,11 @@ struct HomeView: View {
                         Text("スタート")
                             .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .cornerRadius(30)
                     }
                     .isDetailLink(false)
                     .padding(.all, 20.0)
+                    
 
                     
 //                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {

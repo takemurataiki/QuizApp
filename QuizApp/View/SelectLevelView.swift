@@ -26,15 +26,11 @@ struct SelectLevelView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
+                Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
             VStack {
                 
                 
-                Text("難易度を選択してください")
-                    .font(.title2)
-                    .fontWeight(.regular)
-                    .lineLimit(nil)
-                    .padding(.all, 30.0)
+               
                 
                 Spacer()
                 
@@ -47,6 +43,7 @@ struct SelectLevelView: View {
                         Text("初級")
                             .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .cornerRadius(30)
                             .padding(.vertical, 10.0)
                     
                     })
@@ -59,6 +56,7 @@ struct SelectLevelView: View {
                         Text("中級")
                             .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .cornerRadius(30)
                             .padding(.vertical, 10.0)
                     
                     })
@@ -71,6 +69,7 @@ struct SelectLevelView: View {
                         Text("上級")
                             .frame(maxWidth:.infinity, maxHeight: 80.0)
                             .background(Color.white)
+                            .cornerRadius(30)
                             .padding(.vertical, 10.0)
                     
                     })
@@ -85,13 +84,15 @@ struct SelectLevelView: View {
                 AdView()
                     .frame(maxWidth:.infinity, maxHeight: 60.0)
                     
-                NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Category.default, isShow: $btnTap),isActive: $btnTap){
+                NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Level1.default, isShow: $btnTap),isActive: $btnTap){
                     EmptyView()
                 }
                 .isDetailLink(false)
             }
             
         }
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
         
         
     }

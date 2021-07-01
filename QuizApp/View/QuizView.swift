@@ -13,7 +13,9 @@ struct QuizView: View {
     @Binding var isShow: Bool
     //Model
     @State var quiz: Question
-    @Binding var category: Category
+    @Binding var category1: Level1
+    @Binding var category2: Level2
+    @Binding var category3: Level3
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -34,15 +36,41 @@ struct QuizView: View {
         btnTapp = true
         //正解判定
         if quiz.selectAnswer == Int(quizVM.quizArray[1]) {
-            if category.score < 5{
-                //スコアカウント
-                category.score += 1
-                if category.score == 5 {
-                category.mark = "star.fill"
-                
+            if quizVM.selectLevel == 1  {
+                if category1.score < 5{
+                    //スコアカウント
+                    category1.score += 1
+                    if category1.score == 5 {
+                    category1.mark = "肉球"
+                    
+                    }
+                }else {
+                    category1.score = 5
                 }
-            }else {
-                category.score = 5
+            }
+            if quizVM.selectLevel == 2  {
+                if category2.score < 5{
+                    //スコアカウント
+                    category2.score += 1
+                    if category2.score == 5 {
+                    category2.mark = "肉球"
+                    
+                    }
+                }else {
+                    category2.score = 5
+                }
+            }
+            if quizVM.selectLevel == 3  {
+                if category3.score < 5{
+                    //スコアカウント
+                    category3.score += 1
+                    if category3.score == 5 {
+                    category3.mark = "肉球"
+                    
+                    }
+                }else {
+                    category3.score = 5
+                }
             }
             
             //◯画像表示
@@ -135,9 +163,18 @@ struct QuizView: View {
                             self.judgeImage = ""
                            
                             }) {
+                            HStack {
+                                Spacer()
                                 Text("次の問題へ")
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: 60)
+                            .background(Color.white)
+                            .cornerRadius(25)
+                            .padding(.horizontal, 20.0)
                                     
                             }
+                        
                         Spacer()
                         
                     }
@@ -158,11 +195,11 @@ struct QuizView: View {
                             ZStack {
                                 Text(quiz.question).lineLimit(nil)
                                     
+                                    
                  
                             }
                             .frame(width: .infinity, height: 200.0)
-                            .padding(.vertical, 10.0)
-                            
+                            .padding(.all, 10.0)
                             
                             Spacer()
                             
@@ -181,6 +218,7 @@ struct QuizView: View {
                                     }
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .background(Color.white)
+                                    .cornerRadius(25)
                                     .padding(.horizontal, 10.0)
                                     }
                                 .disabled(btnTapp)
@@ -202,6 +240,7 @@ struct QuizView: View {
                                     }
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .background(Color.white)
+                                    .cornerRadius(25)
                                     .padding(.horizontal, 10.0)
                                 
                                 })
@@ -221,6 +260,7 @@ struct QuizView: View {
                                     }
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .background(Color.white)
+                                    .cornerRadius(25)
                                     .padding(.horizontal, 10.0)
                                 
                                 })
@@ -241,6 +281,7 @@ struct QuizView: View {
                                     }
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .background(Color.white)
+                                    .cornerRadius(25)
                                     .padding(.horizontal, 10.0)
                                         
                                 
@@ -252,7 +293,11 @@ struct QuizView: View {
                         
                             Spacer()
                         
-                            NavigationLink(destination: ScoreView(isShow: self.$isShow, quiz: Question.default, category: $category), isActive: $nextPage) {
+                            NavigationLink(destination: ScoreView(isShow: self.$isShow,
+                                                                  quiz: Question.default,
+                                                                  category1: $category1,
+                                                                  category2: $category2,
+                                                                  category3: $category3), isActive: $nextPage) {
                                 EmptyView()
                             }
                             .isDetailLink(false)
@@ -265,14 +310,23 @@ struct QuizView: View {
                 }
             }
             .onAppear(){
-                
-                category.score = 0
-                category.mark = ""
+                if quizVM.selectLevel == 1 {
+                    category1.score = 0
+                    category1.mark = ""
+                }
+                if quizVM.selectLevel == 2 {
+                    category2.score = 0
+                    category2.mark = ""
+                }
+                if quizVM.selectLevel == 3 {
+                    category3.score = 0
+                    category3.mark = ""
+                }
                 
                 quizVM.quizCount = 0
                 //問題データ入れ込み
-                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
-//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
+//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
+                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
                 
                 //問題をランダムにする
                 quizVM.csvArray.shuffle()
@@ -305,7 +359,10 @@ struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
         QuizView(isShow: .constant(false),
                  quiz: Question.default,
-                 category: .constant(Category.default))
+                 category1: .constant(Level1.default),
+                 category2: .constant(Level2.default),
+                 category3: .constant(Level3.default)
+                 )
             .environmentObject(QuizViewModel())
     }
     

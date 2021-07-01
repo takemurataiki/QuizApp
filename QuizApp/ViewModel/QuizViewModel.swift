@@ -7,24 +7,46 @@
 
 import Foundation
 import GoogleMobileAds
+import SwiftUI
 
 class QuizViewModel: ObservableObject {
     //広告
     @Published var bannerView: GADBannerView!
     
     
-    @Published var categoriesArray: [Category] = makeLevel1()
+    @Published var Level1Array: [Level1] = makeLevel1()
     {
         didSet {
            
-            UserDefaults.standard.setEncoded(categoriesArray, forKey: "categoriesArray")
+            UserDefaults.standard.setEncoded(Level1Array, forKey: "Level1Array")
+            
+        }
+    }
+    
+    @Published var Level2Array: [Level2] = makeLevel2()
+    {
+        didSet {
+           
+            UserDefaults.standard.setEncoded(Level2Array, forKey: "Level2Array")
+            
+        }
+    }
+    
+    @Published var Level3Array: [Level3] = makeLevel3()
+    {
+        didSet {
+           
+            UserDefaults.standard.setEncoded(Level3Array, forKey: "Level3Array")
             
         }
     }
     
     init() {
         
-        categoriesArray = UserDefaults.standard.decodedObject([Category].self, forKey: "categoriesArray") ?? makeLevel1()
+        Level1Array = UserDefaults.standard.decodedObject([Level1].self, forKey: "Level1Array") ?? makeLevel1()
+        Level2Array = UserDefaults.standard.decodedObject([Level2].self, forKey: "Level2Array") ?? makeLevel2()
+        Level3Array = UserDefaults.standard.decodedObject([Level3].self, forKey: "Level3Array") ?? makeLevel3()
+
 
         
     }
@@ -73,3 +95,43 @@ extension Collection {
     
 }
 
+extension UIColor {
+    var color: Color {
+        return Color(self)
+    }
+}
+
+enum MyColor {
+    case black
+    // dark modeの対応
+    private func light(_ light: UIColor, dark: UIColor) -> UIColor {
+        if #available(iOS 13, *) {
+            return UIColor { (traitCollection: UITraitCollection) -> UIColor in
+                switch traitCollection.userInterfaceStyle {
+                case .unspecified, .light:
+                    return light
+                case .dark:
+                    return dark
+                @unknown default:
+                    return light
+                }
+            }
+        } else {
+            return light
+        }
+    }
+
+    // ここで色を定義
+    var uiColor: UIColor {
+        switch self {
+        case .black:
+            return light(UIColor(red: 1, green: 0, blue: 0.5, alpha: 1),
+                         dark: UIColor(red: 1, green: 1, blue: 0.5, alpha: 1))
+        }
+    }
+
+    // color
+    var color: Color {
+        return Color(uiColor)
+    }
+}

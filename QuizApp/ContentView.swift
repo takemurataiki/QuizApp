@@ -14,6 +14,12 @@ struct ContentView: View {
     @State var selectTag = 0
     @EnvironmentObject var quizVM: QuizViewModel
     
+    init(){
+            //ナビゲーションバーの背景色の設定
+        UINavigationBar.appearance().barTintColor = UIColor(hue: 0.75, saturation: 0.17, brightness: 1.0, alpha: 0.5)
+        }
+
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -21,7 +27,7 @@ struct ContentView: View {
                     HomeView()
                         .tabItem {
                             Image(systemName: "house")
-                            Text("HOME")
+                            Text("ホーム")
                         }.tag(0)
                     
                      SettingView()
@@ -30,8 +36,8 @@ struct ContentView: View {
                             Text("設定")
                         }.tag(1)
                 }
-                .navigationBarHidden(true)
-                
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
                
             }
         }

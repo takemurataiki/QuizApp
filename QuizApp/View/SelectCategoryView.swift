@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectCategoryView: View {
     //Model
     @State var quiz: Question
-    @State var category: Category
+    @State var category: Level1
     //VM
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -42,32 +42,116 @@ struct SelectCategoryView: View {
                 Spacer()
                 
                     List {
-                        ForEach(quizVM.categoriesArray.indexed(), id: \.1.id) { index,item in
-                            Button(action: {
-                                quizVM.selectCategory = index
-                                levelButtonAction()
-                                
-                            }){
-                                HStack {
-                                    Text("\(item.title)\(index+1)")
-                                    Spacer()
-                                    Image(systemName: item.mark)
-                                        .foregroundColor(Color.yellow)
-                                    Text("\(item.score)/5")
-                                        .padding(.trailing, 10.0)
+                        if quizVM.selectLevel == 1  {
+                            ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
+                                Button(action: {
+                                    quizVM.selectCategory = index
+                                    levelButtonAction()
+                                    
+                                }){
+                                    HStack {
+                                        Text("\(item.title)\(index+1)")
+                                        Spacer()
+                                        HStack {
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                            
+                                    }
                                 }
-                            }
-                            .background(
-                                NavigationLink(destination:QuizView(isShow: $isShow,quiz: Question.default,category: $quizVM.categoriesArray[index])){
+                                .background(
+                                    NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                        quiz: Question.default,
+                                                                        category1: $quizVM.Level1Array[index],
+                                                                        category2: $quizVM.Level2Array[index],
+                                                                        category3: $quizVM.Level3Array[index]
+                                                                        )){
 
-                                }
-                                .isDetailLink(false)
-//                                .buttonStyle(PlainButtonStyle())
-                            )
-                          
-                            
+                                    }
+                                    .isDetailLink(false)
+    //                                .buttonStyle(PlainButtonStyle())
+                                )
+                              
+                                
+                            }
+                            .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                         }
-                        .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                        if quizVM.selectLevel == 2  {
+                            ForEach(quizVM.Level2Array.indexed(), id: \.1.id) { index,item in
+                                Button(action: {
+                                    quizVM.selectCategory = index
+                                    levelButtonAction()
+                                    
+                                }){
+                                    HStack {
+                                        Text("\(item.title)\(index+1)")
+                                        Spacer()
+                                        Image(item.mark)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25, height: 25)
+                                        
+
+                                        Text("\(item.score)/5")
+                                            .padding(.trailing, 10.0)
+                                    }
+                                }
+                                .background(
+                                    NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                        quiz: Question.default,
+                                                                        category1: $quizVM.Level1Array[index],
+                                                                        category2: $quizVM.Level2Array[index],
+                                                                        category3: $quizVM.Level3Array[index])){
+
+                                    }
+                                    .isDetailLink(false)
+    //                                .buttonStyle(PlainButtonStyle())
+                                )
+                              
+                                
+                            }
+                            .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                        }
+                        if quizVM.selectLevel == 3  {
+                            ForEach(quizVM.Level3Array.indexed(), id: \.1.id) { index,item in
+                                Button(action: {
+                                    quizVM.selectCategory = index
+                                    levelButtonAction()
+                                    
+                                }){
+                                    HStack {
+                                        Text("\(item.title)\(index+1)")
+                                        Spacer()
+                                        Image(item.mark)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25, height: 25)
+                                        
+
+                                        Text("\(item.score)/5")
+                                            .padding(.trailing, 10.0)
+                                    }
+                                }
+                                .background(
+                                    NavigationLink(destination:QuizView(isShow: $isShow,quiz: Question.default,
+                                                                        category1: $quizVM.Level1Array[index],
+                                                                        category2: $quizVM.Level2Array[index],
+                                                                        category3: $quizVM.Level3Array[index])){
+
+                                    }
+                                    .isDetailLink(false)
+    //                                .buttonStyle(PlainButtonStyle())
+                                )
+                              
+                                
+                            }
+                            .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                        }
                         
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
@@ -81,13 +165,13 @@ struct SelectCategoryView: View {
             }
             .onAppear(){
                 //初期データ入れ込み
-                if quizVM.categoriesArray.count <= 0 {
+                if quizVM.Level1Array.count <= 0 {
                     if quizVM.selectLevel == 1 {
-                        quizVM.categoriesArray = makeLevel1()
+                        quizVM.Level1Array = makeLevel1()
                     }else if quizVM.selectLevel == 2 {
-                        quizVM.categoriesArray = makeLevel2()
+                        quizVM.Level1Array = makeLevel2()
                     }else if quizVM.selectLevel == 3 {
-                        quizVM.categoriesArray = makeLevel3()
+                        quizVM.Level1Array = makeLevel3()
                     }
                 }
                     
@@ -99,7 +183,7 @@ struct SelectCategoryView: View {
 
 struct SelectCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectCategoryView(quiz: Question.default, category: Category.default, isShow: .constant(false))
+        SelectCategoryView(quiz: Question.default, category: Level1.default, isShow: .constant(false))
             .environmentObject(QuizViewModel())
     }
 }

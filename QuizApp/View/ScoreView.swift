@@ -12,7 +12,9 @@ struct ScoreView: View {
     @Binding var isShow: Bool
     
     @State var quiz: Question
-    @Binding var category: Category
+    @Binding var category1: Level1
+    @Binding var category2: Level2
+    @Binding var category3: Level3
     
     @EnvironmentObject var quizVM: QuizViewModel
     
@@ -30,10 +32,24 @@ struct ScoreView: View {
             Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
             VStack {
                
-                Text("\(category.score)問正解！")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .padding(.vertical, 40.0)
+                if quizVM.selectLevel == 1 {
+                    Text("\(category1.score)問正解！")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .padding(.vertical, 40.0)
+                }
+                if quizVM.selectLevel == 2 {
+                    Text("\(category2.score)問正解！")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .padding(.vertical, 40.0)
+                }
+                if quizVM.selectLevel == 3 {
+                    Text("\(category3.score)問正解！")
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .padding(.vertical, 40.0)
+                }
                    
                 Button(action: {
                         self.isShow = false
@@ -78,7 +94,9 @@ struct ScoreView_Previews: PreviewProvider {
     static var previews: some View {
         ScoreView(isShow: .constant(false),
                   quiz: Question.default,
-                  category: .constant(Category.default))
+                  category1: .constant(Level1.default),
+                  category2: .constant(Level2.default),
+                  category3: .constant(Level3.default))
             .environmentObject(QuizViewModel())
     }
 }

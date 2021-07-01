@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct  Category: Codable,Identifiable {
+struct  Level1: Codable,Identifiable {
     var id = UUID()
     //正解した問題数
     var score :Int
@@ -25,14 +25,14 @@ struct  Category: Codable,Identifiable {
         self.mark = mark
     }
     
-    static var `default` : Category {
-        Category(score: 0, title: "", mark: "")
+    static var `default` : Level1 {
+        Level1(score: 0, title: "", mark: "")
     }
     
 }
 
 ///Codable対応変換
-extension Category {
+extension Level1 {
         /// ①変換対象プロパティ指定
             enum CodingKeys: CodingKey {
                 case id
@@ -88,11 +88,11 @@ extension UserDefaults {
 
 
 
-func makeLevel1() -> [Category] {
-    var dataArray:[Category] = []
-    let Category1 = Category(score: 0, title: "カテゴリ1-", mark: "")
-    let Category2 = Category(score: 0, title: "カテゴリ1-", mark: "")
-    let Category3 = Category(score: 0, title: "カテゴリ1-", mark: "")
+func makeLevel1() -> [Level1] {
+    var dataArray:[Level1] = []
+    let Category1 = Level1(score: 0, title: "カテゴリ1-", mark: "")
+    let Category2 = Level1(score: 0, title: "カテゴリ1-", mark: "")
+    let Category3 = Level1(score: 0, title: "カテゴリ1-", mark: "")
 
     dataArray.append(Category1)
     dataArray.append(Category2)
@@ -102,11 +102,11 @@ func makeLevel1() -> [Category] {
     
 }
 
-func makeLevel2() -> [Category] {
-    var dataArray:[Category] = []
-    let Category1 = Category(score: 0, title: "カテゴリ2-", mark: "")
-    let Category2 = Category(score: 0, title: "カテゴリ2-", mark: "")
-    let Category3 = Category(score: 0, title: "カテゴリ2-", mark: "")
+func makeLevel2() -> [Level1] {
+    var dataArray:[Level1] = []
+    let Category1 = Level1(score: 0, title: "カテゴリ2-", mark: "")
+    let Category2 = Level1(score: 0, title: "カテゴリ2-", mark: "")
+    let Category3 = Level1(score: 0, title: "カテゴリ2-", mark: "")
 
     dataArray.append(Category1)
     dataArray.append(Category2)
@@ -116,11 +116,11 @@ func makeLevel2() -> [Category] {
     
 }
 
-func makeLevel3() -> [Category] {
-    var dataArray:[Category] = []
-    let Category1 = Category(score: 0, title: "カテゴリ3-", mark: "")
-    let Category2 = Category(score: 0, title: "カテゴリ3-", mark: "")
-    let Category3 = Category(score: 0, title: "カテゴリ3-", mark: "")
+func makeLevel3() -> [Level1] {
+    var dataArray:[Level1] = []
+    let Category1 = Level1(score: 0, title: "カテゴリ3-", mark: "")
+    let Category2 = Level1(score: 0, title: "カテゴリ3-", mark: "")
+    let Category3 = Level1(score: 0, title: "カテゴリ3-", mark: "")
 
     dataArray.append(Category1)
     dataArray.append(Category2)
