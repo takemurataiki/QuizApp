@@ -185,20 +185,14 @@ struct QuizView: View {
                     ZStack {
                         Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                         VStack {
-                            
-                            Text("Q\(quiz.quizNumberLabel)")
-                                .padding(.vertical, 20.0)
-                                
-                            
-                            
-                            
-                            ZStack {
+                            VStack {
+                                Spacer()
                                 Text(quiz.question).lineLimit(nil)
-                                    
-                                    
+                                Spacer()
                  
                             }
-                            .frame(width: .infinity, height: 200.0)
+                            .frame(width: .infinity, height: .infinity)
+                            
                             .padding(.all, 10.0)
                             
                             Spacer()
@@ -306,7 +300,7 @@ struct QuizView: View {
                         }
                         
                     }
-                    .navigationBarHidden(true)
+                    
                 }
             }
             .onAppear(){
@@ -350,7 +344,8 @@ struct QuizView: View {
         }
             AdView().frame(maxWidth:.infinity, maxHeight: 60.0)
         }
-
+        .navigationTitle("Q\(quiz.quizNumberLabel)")
+        .navigationBarBackButtonHidden(true)
     }
 }
 

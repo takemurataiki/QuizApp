@@ -16,10 +16,11 @@ struct ContentView: View {
     
     init(){
             //ナビゲーションバーの背景色の設定
-        UINavigationBar.appearance().barTintColor = UIColor(hue: 0.75, saturation: 0.17, brightness: 1.0, alpha: 0.5)
+        UINavigationBar.appearance().barTintColor = UIColor(hue: 0.75, saturation: 0.16, brightness: 1.0, alpha: 0.5)
+        UITableView.appearance().backgroundColor = UIColor(hue: 0.75, saturation: 0.16, brightness: 1.0, alpha: 0.5)
+        
         }
 
-    
     var body: some View {
         NavigationView {
             VStack {

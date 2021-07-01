@@ -32,15 +32,6 @@ struct SelectCategoryView: View {
             Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
             
             VStack {
-                
-                Text("レベル\(quizVM.selectLevel)")
-                    .font(.title2)
-                    .fontWeight(.regular)
-                    .lineLimit(nil)
-                    .padding(.all, 15.0)
-                    
-                Spacer()
-                
                     List {
                         if quizVM.selectLevel == 1  {
                             ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
@@ -178,7 +169,8 @@ struct SelectCategoryView: View {
             }
            
         }
-        }
+        .navigationTitle("レベル\(quizVM.selectLevel)")
+    }
 }
 
 struct SelectCategoryView_Previews: PreviewProvider {

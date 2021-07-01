@@ -56,11 +56,12 @@ struct ScoreView: View {
                    
                 }){
                     Text("トップに戻る")
-                        .padding(.all, 30.0)
+                        .padding(.all, 20.0)
                         .frame(width: 300.0, height: 70.0)
                         .background(Color.white)
+                        .cornerRadius(25)
                     
-                }.padding(.all, 30.0)
+                }.padding(.all, 20.0)
                 
                 //シェアボタン
                 Button(action: actionSheet) {
@@ -75,7 +76,8 @@ struct ScoreView: View {
                     .padding(.all, 30.0)
                     .frame(width: 300.0, height: 70.0)
                     .background(Color.white)
-                }.padding(.all, 30.0)
+                    .cornerRadius(25)
+                }.padding(.all, 20.0)
                 
                 Spacer()
                 

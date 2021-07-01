@@ -91,9 +91,8 @@ struct SelectLevelView: View {
             }
             
         }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        
+        .navigationTitle("難易度")
+       
         
     }
 }
