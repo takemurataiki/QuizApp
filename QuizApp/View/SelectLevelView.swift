@@ -103,8 +103,12 @@ struct SelectLevelView: View {
                         presentation.wrappedValue.dismiss()
                         
                     }){
-                        Image(systemName: "chevron.backward")
-                            .scaleEffect(1.25)
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                                .scaleEffect(1.3)
+                                .frame(width: 60, height: 30,alignment: .leading)
+                            
+                        }
                     }
                 }
         )

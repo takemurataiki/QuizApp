@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QuizView: View {
+    
+    @State private var showingAlert = false   // ①アクションシートの表示フラグ
     //ボタンをタップしたかどうか
     @State var btnTapp:Bool = false
     @Binding var isShow: Bool
@@ -41,10 +43,12 @@ struct QuizView: View {
             if quizVM.selectLevel == 1  {
                 if category1.score < 5{
                     //スコアカウント
-                    category1.score += 1
+//                    category1.score += 1
+                    quizVM.score += 1
+                    category1.score = quizVM.score
                     if category1.score == 5 {
                     category1.mark = "肉球"
-                    
+
                     }
                 }else {
                     category1.score = 5
@@ -53,10 +57,12 @@ struct QuizView: View {
             if quizVM.selectLevel == 2  {
                 if category2.score < 5{
                     //スコアカウント
-                    category2.score += 1
+//                    category2.score += 1
+                    quizVM.score += 1
+                    category2.score = quizVM.score
                     if category2.score == 5 {
                     category2.mark = "肉球"
-                    
+
                     }
                 }else {
                     category2.score = 5
@@ -65,7 +71,9 @@ struct QuizView: View {
             if quizVM.selectLevel == 3  {
                 if category3.score < 5{
                     //スコアカウント
-                    category3.score += 1
+//                    category3.score += 1
+                    quizVM.score += 1
+                    category3.score = quizVM.score
                     if category3.score == 5 {
                     category3.mark = "肉球"
                     
@@ -305,19 +313,37 @@ struct QuizView: View {
                     
                 }
             }
+//            .onDisappear() {
+//                if quizVM.selectLevel == 1 {
+//                    category1.score = quizVM.score
+//                    
+//                    
+//                }
+//                if quizVM.selectLevel == 2 {
+//                    category2.score = quizVM.score
+//                    
+//                    
+//                }
+//                if quizVM.selectLevel == 3 {
+//                    category3.score = quizVM.score
+//                    
+//                    
+//                }
+//            }
             .onAppear(){
-                if quizVM.selectLevel == 1 {
-                    category1.score = 0
-                    category1.mark = ""
-                }
-                if quizVM.selectLevel == 2 {
-                    category2.score = 0
-                    category2.mark = ""
-                }
-                if quizVM.selectLevel == 3 {
-                    category3.score = 0
-                    category3.mark = ""
-                }
+//                if quizVM.selectLevel == 1 {
+//                    category1.score = 0
+//                    category1.mark = ""
+//                }
+//                if quizVM.selectLevel == 2 {
+//                    category2.score = 0
+//                    category2.mark = ""
+//                }
+//                if quizVM.selectLevel == 3 {
+//                    category3.score = 0
+//                    category3.mark = ""
+//                }
+                quizVM.score = 0
                 
                 quizVM.quizCount = 0
                 //問題データ入れ込み
@@ -344,6 +370,7 @@ struct QuizView: View {
                 
                 
         }
+            
             AdView().frame(maxWidth:.infinity, maxHeight: 60.0)
         }
         .navigationTitle("Q\(quiz.quizNumberLabel)")
@@ -352,13 +379,24 @@ struct QuizView: View {
             leading:
                 HStack {
                     Button(action: {
-                        ///前画面に戻る
-                        presentation.wrappedValue.dismiss()
+                        self.showingAlert = true
                         
                     }){
                         Image(systemName: "chevron.backward")
-                            .scaleEffect(1.25)
+                            .scaleEffect(1.3)
+                            .frame(width: 60, height: 30,alignment: .leading)
                     }
+                    .alert(isPresented: $showingAlert) {
+                                Alert(title: Text("警告"),
+                                      message: Text("問題を中止しますか？\n※スコアは途中までのものとなります") ,
+                                      primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
+                                      secondaryButton: .destructive(Text("中止"),
+                                                                    action: {
+                                        ///前画面に戻る
+                                        presentation.wrappedValue.dismiss()
+                                        }
+                                      ))   // 破壊的変更用
+                            }
                 }
         )
     }

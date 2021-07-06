@@ -63,7 +63,7 @@ class QuizViewModel: ObservableObject {
     @Published var quizCount = 0
     
     //正解した数
-    @Published var correctCount = 0
+    @Published var score = 0
     
     //どのレベルを選択したか
     @Published var selectLevel = 0

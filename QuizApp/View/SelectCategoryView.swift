@@ -181,7 +181,8 @@ struct SelectCategoryView: View {
                         
                     }){
                         Image(systemName: "chevron.backward")
-                            .scaleEffect(1.25)
+                            .scaleEffect(1.3)
+                            .frame(width: 60, height: 30,alignment: .leading)
                     }
                 }
         )
