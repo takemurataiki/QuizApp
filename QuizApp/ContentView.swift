@@ -24,25 +24,28 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TabView(selection: $selectTag) {
+                
                     HomeView()
-                        .tabItem {
-                            Image(systemName: "house")
-                            Text("ホーム")
-                        }.tag(0)
-                    
-                     SettingView()
-                        .tabItem {
-                            Image(systemName: "gearshape")
-                            Text("設定")
-                        }.tag(1)
-                }
-                
-                
-               
+                        
             }
-//            .navigationBarHidden(true)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                trailing:
+                    HStack {
+                        Button(action: {
+                           
+                            
+                        }){
+                            HStack {
+                                Image(systemName: "gearshape.fill")
+                                    .scaleEffect(1.5)
+                                    .frame(width: 60, height: 30,alignment: .trailing)
+                                
+                            }
+                        }
+                    }
+            )
+           
             
             
         }

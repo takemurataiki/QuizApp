@@ -9,12 +9,25 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var selectTag = 0
+    
+    //ボタンをタップしたかどうか
+    @State var btnTap = false
+    
+    
+    
     @EnvironmentObject var quizVM: QuizViewModel
+    @Environment(\.presentationMode) var presentation
+    
+    //3つのボタンを押した時どのボタンを押したか判断する
+    func levelButtonAction() {
+        quizVM.selectLevel = selectTag
+        btnTap = true
+    }
     
     var body: some View {
-        
 
-            ZStack {
+        ZStack {
                 Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
                 VStack {
                     HStack {
@@ -22,9 +35,7 @@ struct HomeView: View {
                             .font(.largeTitle)
                             .fontWeight(.black)
                             .foregroundColor(Color.black)
-                            
-                            
-                        
+                          
                     }
                     .padding(.top, 20.0)
                     Spacer()
@@ -33,39 +44,73 @@ struct HomeView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth:.infinity, maxHeight:.infinity)
-                        .padding(.all, 20.0)
+                        .padding(.all, 50.0)
                     
+                
+        //                        //スタートボタン
+        //                        NavigationLink(destination: SelectLevelView()){
+        //                            Text("スタート")
+        //                                .frame(maxWidth:.infinity, maxHeight: 80.0)
+        //                                .background(Color.white)
+        //                                .cornerRadius(30)
+        //                        }
+        //                        .isDetailLink(false)
+        //                        .padding(.all, 20.0)
+                    VStack {
                         
-                    
-                    
-                    
-
-                    
-
-                    //スタートボタン
-                    NavigationLink(destination: SelectLevelView()){
-                        Text("スタート")
-                            .frame(maxWidth:.infinity, maxHeight: 80.0)
-                            .background(Color.white)
-                            .cornerRadius(30)
+                        
+                       
+                        
+                        Spacer()
+                        
+                        VStack {
+                            
+                            Button(action: {
+                                selectTag = 1
+                                levelButtonAction()
+                            }, label: {
+                                Text("初級")
+                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
+                                    .background(Color.white)
+                                    .cornerRadius(30)
+                                    .padding(.vertical, 10.0)
+                            
+                            })
+                            
+                            Button(action: {
+                                selectTag = 2
+                                levelButtonAction()
+                                
+                            }, label: {
+                                Text("中級")
+                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
+                                    .background(Color.white)
+                                    .cornerRadius(30)
+                                    .padding(.vertical, 10.0)
+                            
+                            })
+                            
+                            Button(action: {
+                                selectTag = 3
+                            
+                                levelButtonAction()
+                            }, label: {
+                                Text("上級")
+                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
+                                    .background(Color.white)
+                                    .cornerRadius(30)
+                                    .padding(.vertical, 10.0)
+                            })
+                        }
+                        .frame(height: .infinity)
+                        .padding(.all, 10.0)
+    
+                        NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Level1.default, isShow: $btnTap),isActive: $btnTap){
+                            EmptyView()
+                        }
+                        .isDetailLink(false)
                     }
-                    .isDetailLink(false)
-                    .padding(.all, 20.0)
                     
-
-                    
-//                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-//                        Text("復習")
-//                            .padding(.all, 30.0)
-//                            .frame(width: 300.0, height: 80.0)
-//                            .background(Color.white)
-//                    }
-//                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-//                        Text("テスト")
-//                            .padding(.all, 30.0)
-//                            .frame(width: 300.0, height: 80.0)
-//                            .background(Color.white)
-//                    }
                     Spacer()
 
                     AdView()
@@ -73,10 +118,9 @@ struct HomeView: View {
                 }
 
 
-            }
-//            .navigationBarHidden(true)
-//            .navigationBarTitleDisplayMode(.inline)
-            
+        }
+        
+          
     }
 }
 

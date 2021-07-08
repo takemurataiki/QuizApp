@@ -67,13 +67,13 @@ extension Level3 {
 
 func makeLevel3() -> [Level3] {
     var dataArray:[Level3] = []
-    let Category1 = Level3(score: 0, title: "カテゴリ3-", mark: "")
-    let Category2 = Level3(score: 0, title: "カテゴリ3-", mark: "")
-    let Category3 = Level3(score: 0, title: "カテゴリ3-", mark: "")
+    let Ecology1 = Level3(score: 0, title: "生態3-", mark: "")
+    let Ecology2 = Level3(score: 0, title: "生態3-", mark: "")
+    let Ecology3 = Level3(score: 0, title: "生態3-", mark: "")
 
-    dataArray.append(Category1)
-    dataArray.append(Category2)
-    dataArray.append(Category3)
+    dataArray.append(Ecology1)
+    dataArray.append(Ecology2)
+    dataArray.append(Ecology3)
     
     return dataArray
     

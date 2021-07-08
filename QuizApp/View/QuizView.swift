@@ -29,6 +29,9 @@ struct QuizView: View {
     
     //正誤判定画像
     @State var judgeImage = ""
+    //正解判定（色調整）
+    @State var jugeColor:Bool = false
+    @State var juge:String = ""
     
     
     @State var flag:Bool = false
@@ -40,6 +43,10 @@ struct QuizView: View {
         btnTapp = true
         //正解判定
         if quiz.selectAnswer == Int(quizVM.quizArray[1]) {
+            jugeColor = true
+            //◯画像表示
+            judgeImage = "correct"
+            juge = "正解"
             if quizVM.selectLevel == 1  {
                 if category1.score < 5{
                     //スコアカウント
@@ -51,10 +58,12 @@ struct QuizView: View {
 
                     }
                 }else {
+                    jugeColor = false
                     category1.score = 5
                 }
             }
             if quizVM.selectLevel == 2  {
+                
                 if category2.score < 5{
                     //スコアカウント
 //                    category2.score += 1
@@ -65,10 +74,12 @@ struct QuizView: View {
 
                     }
                 }else {
+                    jugeColor = false
                     category2.score = 5
                 }
             }
             if quizVM.selectLevel == 3  {
+                
                 if category3.score < 5{
                     //スコアカウント
 //                    category3.score += 1
@@ -79,17 +90,17 @@ struct QuizView: View {
                     
                     }
                 }else {
+                   
                     category3.score = 5
                 }
             }
             
-            //◯画像表示
-            judgeImage = "correct"
-            print("正解")
+           
         } else {
+            jugeColor = false
             //×画像表示
             judgeImage = "incorrect"
-            print("不正解")
+            juge = "不正解"
         }
         
         
@@ -121,284 +132,310 @@ struct QuizView: View {
     }
     
     var body: some View {
-        VStack {
-            ZStack {
-                if flag {
-                    ZStack {
-                        Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
-                    VStack {
-                        Text("解説")
-                            .padding(.vertical, 20.0)
-                        
-                        HStack {
-                            Text("判定")
-                            Image(judgeImage)
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                
-                        }
-                        
-                        HStack {
-                            Text("【回答】")
+        ZStack {
+            Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
+            VStack {
+                ZStack {
+                    if flag {
+                        ZStack {
                             
-                            Text("\(quiz.selectAnswer),")
-                            Text(quizVM.quizArray[quiz.selectAnswer+1])
-                            Spacer()
+                        VStack {
                             
-                        }
-                        
-                        HStack {
-                            Text("【正解】")
-                            Text("\(quizVM.quizArray[1]),")
-                            Text(quizVM.quizArray[1+Int(quizVM.quizArray[1])!])
-                            Spacer()
+                            //判定
+                            VStack {
+                                Image(judgeImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: 80, maxHeight: 80)
+                                Text(juge)
+                                    .foregroundColor(jugeColor ? Color.red : Color.blue)
+                             }
+                            .padding(.all, 30.0)
                             
-                        }
-                        
-                        Spacer()
-                        HStack {
-                            Text("【解答】")
-                            Spacer()
-                        }
-                        Text(quiz.explanation)
-                            .padding(.vertical, 20.0)
-                            
-                            
-                        
-                        
-                        Button(action: {
-                            flag = false
-                            btnTapp = false
-                            nextQuiz()
-                            self.judgeImage = ""
-                           
-                            }) {
-                            HStack {
-                                Spacer()
-                                Text("次の問題へ")
-                                Spacer()
+                            //問題文
+                            VStack {
+                                HStack {
+                                    Text("【問題】")
+                                        .fontWeight(.bold)
+                                    Spacer()
+                                }
+                                Text(quiz.question)
+                                    
+                                    
                             }
-                            .frame(maxWidth: .infinity, maxHeight: 60)
+                            .padding(.all, 5.0)
                             .background(Color.white)
                             .cornerRadius(25)
-                            .padding(.horizontal, 20.0)
-                                    
-                            }
-                        
-                        Spacer()
-                        
-                    }
-                }
-                .navigationBarHidden(true)
-                }
-                if !flag {
-                    ZStack {
-                        Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all)
-                        VStack {
-                            VStack {
-                                Spacer()
-                                Text(quiz.question).lineLimit(nil)
-                                Spacer()
-                 
-                            }
-                            .frame(width: .infinity, height: .infinity)
-                            
                             .padding(.all, 10.0)
                             
-                            Spacer()
-                            
+                            //答え
                             VStack {
-                                Button(action: {
-                                    quiz.selectAnswer = 1
-                                    btnAction()
+                                HStack {
+                                    Text("【回答】")
+                                        .fontWeight(.bold)
                                     
-                                    }) {
-                                    HStack {
-                                        Text("1,")
-                                            .padding(.leading, 5.0)
-                                        Spacer()
-                                        Text(quiz.answerButton1)
-                                        Spacer()
-                                    }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.white)
-                                    .cornerRadius(25)
-                                    .padding(.horizontal, 10.0)
-                                    }
-                                .disabled(btnTapp)
-                                
-                                Spacer()
-                                Button(action: {
-                                    quiz.selectAnswer = 2
-                                    btnAction()
+                                    Text("\(quiz.selectAnswer),")
+                                    Text(quizVM.quizArray[quiz.selectAnswer+1])
+                                    Spacer()
                                     
-                                    
-                                }, label: {
-                                    HStack {
-                                        Text("2,")
-                                            .padding(.leading, 5.0)
-                                            
-                                        Spacer()
-                                        Text(quiz.answerButton2)
-                                        Spacer()
-                                    }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.white)
-                                    .cornerRadius(25)
-                                    .padding(.horizontal, 10.0)
-                                
-                                })
-                                .disabled(btnTapp)
-                                Spacer()
-                                Button(action: {
-                                    quiz.selectAnswer = 3
-                                    btnAction()
-                                   
-                                }, label: {
-                                    HStack {
-                                        Text("3,")
-                                            .padding(.leading, 5.0)
-                                        Spacer()
-                                        Text(quiz.answerButton3)
-                                        Spacer()
-                                    }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.white)
-                                    .cornerRadius(25)
-                                    .padding(.horizontal, 10.0)
-                                
-                                })
-                                .disabled(btnTapp)
-                                Spacer()
-                                Button(action: {
-                                    
-                                    quiz.selectAnswer = 4
-                                    btnAction()
-                                   
-                                }, label: {
-                                    HStack {
-                                        Text("4,")
-                                            .padding(.leading, 5.0)
-                                        Spacer()
-                                        Text(quiz.answerButton4)
-                                        Spacer()
-                                    }
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                    .background(Color.white)
-                                    .cornerRadius(25)
-                                    .padding(.horizontal, 10.0)
+                                }
+                                HStack {
+                                    Text("【正解】")
+                                        .fontWeight(.bold)
                                         
-                                
-                                })
-                                .disabled(btnTapp)
+                                    HStack {
+                                        Text("\(quizVM.quizArray[1]),")
+                                            .fontWeight(.bold)
+                                        Text(quizVM.quizArray[1+Int(quizVM.quizArray[1])!])
+                                            .fontWeight(.bold)
+                                    }
+                                    .foregroundColor(jugeColor ? Color.black : Color.red)
+                                     
+                                    Spacer()
+                                    
+                                }
                             }
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            
-                        
-                            Spacer()
-                        
-                            NavigationLink(destination: ScoreView(isShow: self.$isShow,
-                                                                  quiz: Question.default,
-                                                                  category1: $category1,
-                                                                  category2: $category2,
-                                                                  category3: $category3), isActive: $nextPage) {
-                                EmptyView()
-                            }
-                            .isDetailLink(false)
+                            .padding(.all, 10.0)
+                            .background(Color.white)
+                            .cornerRadius(25)
+                            .padding(.all, 10.0)
                             
                            
+                            //解説
+                            VStack {
+                                HStack {
+                                    Text("【解説】")
+                                        .fontWeight(.bold)
+                                        
+                                       
+                                    Spacer()
+                                }
+                                Text(quiz.explanation)
+                                    .padding(.all, 15.0)
+                            }
+                            .padding(.all, 10.0)
+                            .background(Color.white)
+                            .cornerRadius(25)
+                            .padding(.all, 10.0)
+
+                                
+                                
+                            Spacer()
+                            
+                            //次の問題
+                            Button(action: {
+                                flag = false
+                                btnTapp = false
+                                nextQuiz()
+                                self.judgeImage = ""
+                               
+                                }) {
+                                HStack {
+                                    Spacer()
+                                    Text("次の問題へ")
+                                    Spacer()
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: 60)
+                                .background(Color.white)
+                                .cornerRadius(25)
+                                .padding(.horizontal, 20.0)
+                                        
+                                }
+                            
+                            Spacer()
+                            
+                        }
+                    }
+                    
+                    }
+                    if !flag {
+                        ZStack {
+                            
+                            VStack {
+                                VStack {
+                                    Spacer()
+                                    Text(quiz.question).lineLimit(nil)
+                                    Spacer()
+                     
+                                }
+                                .frame(width: .infinity, height: .infinity)
+                                .padding(.all, 15.0)
+                                .background(Color.white)
+                                .cornerRadius(25)
+                                
+                                
+                                .padding(.all, 10.0)
+                                
+                                Spacer()
+                                
+                                VStack {
+                                    Button(action: {
+                                        quiz.selectAnswer = 1
+                                        btnAction()
+                                        
+                                        }) {
+                                        HStack {
+                                            Text("１,")
+                                                .padding(.leading, 5.0)
+                                            Spacer()
+                                            Text(quiz.answerButton1)
+                                            Spacer()
+                                        }
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.white)
+                                        .cornerRadius(25)
+                                        .padding(.horizontal, 15.0)
+                                        }
+                                    .disabled(btnTapp)
+                                    
+                                    Spacer()
+                                    Button(action: {
+                                        quiz.selectAnswer = 2
+                                        btnAction()
+                                        
+                                        
+                                    }, label: {
+                                        HStack {
+                                            Text("2,")
+                                                .padding(.leading, 5.0)
+                                                
+                                            Spacer()
+                                            Text(quiz.answerButton2)
+                                            Spacer()
+                                        }
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.white)
+                                        .cornerRadius(25)
+                                        .padding(.horizontal, 15.0)
+                                        
+                                    
+                                    })
+                                    .disabled(btnTapp)
+                                    Spacer()
+                                    Button(action: {
+                                        quiz.selectAnswer = 3
+                                        btnAction()
+                                       
+                                    }, label: {
+                                        HStack {
+                                            Text("3,")
+                                                .padding(.leading, 5.0)
+                                            Spacer()
+                                            Text(quiz.answerButton3)
+                                            Spacer()
+                                        }
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.white)
+                                        .cornerRadius(25)
+                                        .padding(.horizontal, 15.0)
+                                    
+                                    })
+                                    .disabled(btnTapp)
+                                    Spacer()
+                                    Button(action: {
+                                        
+                                        quiz.selectAnswer = 4
+                                        btnAction()
+                                       
+                                    }, label: {
+                                        HStack {
+                                            Text("4,")
+                                                .padding(.leading, 5.0)
+                                            Spacer()
+                                            Text(quiz.answerButton4)
+                                            Spacer()
+                                        }
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .background(Color.white)
+                                        .cornerRadius(25)
+                                        .padding(.horizontal, 15.0)
+                                            
+                                    
+                                    })
+                                    .disabled(btnTapp)
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                
+                            
+                                Spacer()
+                            
+                                NavigationLink(destination: ScoreView(isShow: self.$isShow,
+                                                                      quiz: Question.default,
+                                                                      category1: $category1,
+                                                                      category2: $category2,
+                                                                      category3: $category3), isActive: $nextPage) {
+                                    EmptyView()
+                                }
+                                .isDetailLink(false)
+                                
+                               
+                            }
+                            
                         }
                         
                     }
                     
                 }
-            }
-//            .onDisappear() {
-//                if quizVM.selectLevel == 1 {
-//                    category1.score = quizVM.score
-//                    
-//                    
-//                }
-//                if quizVM.selectLevel == 2 {
-//                    category2.score = quizVM.score
-//                    
-//                    
-//                }
-//                if quizVM.selectLevel == 3 {
-//                    category3.score = quizVM.score
-//                    
-//                    
-//                }
-//            }
-            .onAppear(){
-//                if quizVM.selectLevel == 1 {
-//                    category1.score = 0
-//                    category1.mark = ""
-//                }
-//                if quizVM.selectLevel == 2 {
-//                    category2.score = 0
-//                    category2.mark = ""
-//                }
-//                if quizVM.selectLevel == 3 {
-//                    category3.score = 0
-//                    category3.mark = ""
-//                }
-                quizVM.score = 0
-                
-                quizVM.quizCount = 0
-                //問題データ入れ込み
-//                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
-                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
-                
-                //問題をランダムにする
-                quizVM.csvArray.shuffle()
-                
-                //一問分のデータを入れる
-                quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
-                
-                //問題データ代入
-                quiz.quizNumberLabel = quizVM.quizCount + 1
-                quiz.question = quizVM.quizArray[0]
 
-                quiz.answerButton1 = quizVM.quizArray[2]
-                quiz.answerButton2 = quizVM.quizArray[3]
-                quiz.answerButton3 = quizVM.quizArray[4]
-                quiz.answerButton4 = quizVM.quizArray[5]
-                quiz.explanation = quizVM.quizArray[6]
+                .onAppear(){
+
+                    quizVM.score = 0
+                    
+                    quizVM.quizCount = 0
+                    //問題データ入れ込み
+    //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
+                    quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
+                    
+                    //問題をランダムにする
+                    quizVM.csvArray.shuffle()
+                    
+                    //一問分のデータを入れる
+                    quizVM.quizArray = quizVM.csvArray[quizVM.quizCount].components(separatedBy: ",")
+                    
+                    //問題データ代入
+                    quiz.quizNumberLabel = quizVM.quizCount + 1
+                    quiz.question = quizVM.quizArray[0]
+
+                    quiz.answerButton1 = quizVM.quizArray[2]
+                    quiz.answerButton2 = quizVM.quizArray[3]
+                    quiz.answerButton3 = quizVM.quizArray[4]
+                    quiz.answerButton4 = quizVM.quizArray[5]
+                    quiz.explanation = quizVM.quizArray[6]
+                    
+                    print("選択したレベル\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
+                    
+                    
+            }
+                AdView().frame(maxWidth:.infinity, maxHeight: 60.0)
                 
-                print("選択したレベル\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
-                
-                
-        }
-            
-            AdView().frame(maxWidth:.infinity, maxHeight: 60.0)
-        }
-        .navigationTitle("Q\(quiz.quizNumberLabel)")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(
-            leading:
-                HStack {
-                    Button(action: {
-                        self.showingAlert = true
-                        
-                    }){
-                        Image(systemName: "chevron.backward")
-                            .scaleEffect(1.3)
-                            .frame(width: 60, height: 30,alignment: .leading)
+            }
+            .navigationTitle("Q\(quiz.quizNumberLabel)")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(
+                leading:
+                    HStack {
+                        Button(action: {
+                            self.showingAlert = true
+                            
+                        }){
+                            Image(systemName: "chevron.backward")
+                                .scaleEffect(1.3)
+                                .frame(width: 60, height: 30,alignment: .leading)
+                        }
+                        .alert(isPresented: $showingAlert) {
+                                    Alert(title: Text("警告"),
+                                          message: Text("問題を中止しますか？\n※スコアは途中までのものとなります") ,
+                                          primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
+                                          secondaryButton: .destructive(Text("中止"),
+                                                                        action: {
+                                            ///前画面に戻る
+                                            presentation.wrappedValue.dismiss()
+                                            }
+                                          ))   // 破壊的変更用
+                                }
                     }
-                    .alert(isPresented: $showingAlert) {
-                                Alert(title: Text("警告"),
-                                      message: Text("問題を中止しますか？\n※スコアは途中までのものとなります") ,
-                                      primaryButton: .cancel(Text("キャンセル")),    // キャンセル用
-                                      secondaryButton: .destructive(Text("中止"),
-                                                                    action: {
-                                        ///前画面に戻る
-                                        presentation.wrappedValue.dismiss()
-                                        }
-                                      ))   // 破壊的変更用
-                            }
-                }
         )
+        }
     }
 }
 

@@ -90,47 +90,48 @@ extension UserDefaults {
 
 func makeLevel1() -> [Level1] {
     var dataArray:[Level1] = []
-    let Category1 = Level1(score: 0, title: "カテゴリ1-", mark: "")
-    let Category2 = Level1(score: 0, title: "カテゴリ1-", mark: "")
-    let Category3 = Level1(score: 0, title: "カテゴリ1-", mark: "")
-
-    dataArray.append(Category1)
-    dataArray.append(Category2)
-    dataArray.append(Category3)
+    //生態
+    let Ecology1 = Level1(score: 0, title: "生態1-", mark: "")
+    let Ecology2 = Level1(score: 0, title: "生態1-", mark: "")
+    let Ecology3 = Level1(score: 0, title: "生態1-", mark: "")
+    
+    dataArray.append(Ecology1)
+    dataArray.append(Ecology2)
+    dataArray.append(Ecology3)
     
     return dataArray
     
 }
 
-func makeLevel2() -> [Level1] {
-    var dataArray:[Level1] = []
-    let Category1 = Level1(score: 0, title: "カテゴリ2-", mark: "")
-    let Category2 = Level1(score: 0, title: "カテゴリ2-", mark: "")
-    let Category3 = Level1(score: 0, title: "カテゴリ2-", mark: "")
-
-    dataArray.append(Category1)
-    dataArray.append(Category2)
-    dataArray.append(Category3)
-    
-    return dataArray
-    
-}
-
-func makeLevel3() -> [Level1] {
-    var dataArray:[Level1] = []
-    let Category1 = Level1(score: 0, title: "カテゴリ3-", mark: "")
-    let Category2 = Level1(score: 0, title: "カテゴリ3-", mark: "")
-    let Category3 = Level1(score: 0, title: "カテゴリ3-", mark: "")
-
-    dataArray.append(Category1)
-    dataArray.append(Category2)
-    dataArray.append(Category3)
-    
-    return dataArray
-    
-}
-
-
+//func makeLevel2() -> [Level1] {
+//    var dataArray:[Level1] = []
+//    let Ecology1 = Level1(score: 0, title: "カテゴリ2-", mark: "")
+//    let Ecology2 = Level1(score: 0, title: "カテゴリ2-", mark: "")
+//    let Ecology3 = Level1(score: 0, title: "カテゴリ2-", mark: "")
+//
+//    dataArray.append(Ecology1)
+//    dataArray.append(Ecology2)
+//    dataArray.append(Ecology3)
+//    
+//    return dataArray
+//    
+//}
+//
+//func makeLevel3() -> [Level1] {
+//    var dataArray:[Level1] = []
+//    let Category1 = Level1(score: 0, title: "カテゴリ3-", mark: "")
+//    let Category2 = Level1(score: 0, title: "カテゴリ3-", mark: "")
+//    let Category3 = Level1(score: 0, title: "カテゴリ3-", mark: "")
+//
+//    dataArray.append(Category1)
+//    dataArray.append(Category2)
+//    dataArray.append(Category3)
+//    
+//    return dataArray
+//    
+//}
+//
+//
 
 
 
