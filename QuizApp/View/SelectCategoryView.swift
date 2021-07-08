@@ -36,7 +36,124 @@ struct SelectCategoryView: View {
                     List {
                         if quizVM.selectLevel == 1  {
                             Section(header: Text("生態")) {
-                                ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level1Array[0...2].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            HStack {
+                                                Image(item.mark)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 25, height: 25)
+                                                
+                                                Text("\(item.score)/5")
+                                                    .padding(.trailing, 10.0)
+                                            }
+                                                
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                            quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index]
+                                                                            )){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                  
+                                    
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("暮らし")) {
+                                ForEach(quizVM.Level1Array[3...5].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            HStack {
+                                                Image(item.mark)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 25, height: 25)
+                                                
+                                                Text("\(item.score)/5")
+                                                    .padding(.trailing, 10.0)
+                                            }
+                                                
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                            quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index]
+                                                                            )){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                  
+                                    
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("歴史")) {
+                                ForEach(quizVM.Level1Array[6...8].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            HStack {
+                                                Image(item.mark)
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 25, height: 25)
+                                                
+                                                Text("\(item.score)/5")
+                                                    .padding(.trailing, 10.0)
+                                            }
+                                                
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                            quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index]
+                                                                            )){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                  
+                                    
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("文化")) {
+                                ForEach(quizVM.Level1Array[9...11].indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
@@ -77,7 +194,7 @@ struct SelectCategoryView: View {
                         }
                         if quizVM.selectLevel == 2  {
                             Section(header: Text("生態")) {
-                                ForEach(quizVM.Level2Array.indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level2Array[0...2].indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
@@ -107,15 +224,224 @@ struct SelectCategoryView: View {
                                         .isDetailLink(false)
         //                                .buttonStyle(PlainButtonStyle())
                                     )
-                                  
-                                    
+                                   
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("暮らし")) {
+                                ForEach(quizVM.Level2Array[3...5].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                            quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index])){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                   
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("歴史")) {
+                                ForEach(quizVM.Level2Array[6...8].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                            quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index])){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                   
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("文化")) {
+                                ForEach(quizVM.Level2Array[9...11].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,
+                                                                            quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index])){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                   
                                 }
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                         }
                         if quizVM.selectLevel == 3  {
                             Section(header: Text("生態")) {
-                                ForEach(quizVM.Level3Array.indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level3Array[0...2].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index])){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                  
+                                    
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("暮らし")) {
+                                ForEach(quizVM.Level3Array[3...5].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index])){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                  
+                                    
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("歴史")) {
+                                ForEach(quizVM.Level3Array[6...8].indexed(), id: \.1.id) { index,item in
+                                    Button(action: {
+                                        quizVM.selectCategory = index
+                                        levelButtonAction()
+                                        
+                                    }){
+                                        HStack {
+                                            Text("\(item.title)\(index+1)")
+                                            Spacer()
+                                            Image(item.mark)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 25, height: 25)
+                                            
+
+                                            Text("\(item.score)/5")
+                                                .padding(.trailing, 10.0)
+                                        }
+                                    }
+                                    .background(
+                                        NavigationLink(destination:QuizView(isShow: $isShow,quiz: Question.default,
+                                                                            category1: $quizVM.Level1Array[index],
+                                                                            category2: $quizVM.Level2Array[index],
+                                                                            category3: $quizVM.Level3Array[index])){
+
+                                        }
+                                        .isDetailLink(false)
+        //                                .buttonStyle(PlainButtonStyle())
+                                    )
+                                  
+                                    
+                                }
+                                .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
+                            }
+                            Section(header: Text("文化")) {
+                                ForEach(quizVM.Level3Array[8...11].indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()

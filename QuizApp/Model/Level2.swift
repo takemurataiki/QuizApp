@@ -71,10 +71,34 @@ func makeLevel2() -> [Level2] {
     let Ecology1 = Level2(score: 0, title: "生態2-", mark: "")
     let Ecology2 = Level2(score: 0, title: "生態2-", mark: "")
     let Ecology3 = Level2(score: 0, title: "生態2-", mark: "")
+    //暮らし
+    let living1 = Level2(score: 0, title: "暮らし1-", mark: "")
+    let living2 = Level2(score: 0, title: "暮らし1-", mark: "")
+    let living3 = Level2(score: 0, title: "暮らし1-", mark: "")
+    //歴史
+    let hisitory1 = Level2(score: 0, title: "歴史1-", mark: "")
+    let hisitory2 = Level2(score: 0, title: "歴史1-", mark: "")
+    let hisitory3 = Level2(score: 0, title: "歴史1-", mark: "")
+    //文化
+    let culture1 = Level2(score: 0, title: "文化1-", mark: "")
+    let culture2 = Level2(score: 0, title: "文化1-", mark: "")
+    let culture3 = Level2(score: 0, title: "文化1-", mark: "")
 
     dataArray.append(Ecology1)
     dataArray.append(Ecology2)
     dataArray.append(Ecology3)
+    
+    dataArray.append(living1)
+    dataArray.append(living2)
+    dataArray.append(living3)
+    
+    dataArray.append(hisitory1)
+    dataArray.append(hisitory2)
+    dataArray.append(hisitory3)
+    
+    dataArray.append(culture1)
+    dataArray.append(culture2)
+    dataArray.append(culture3)
     
     return dataArray
     
