@@ -17,7 +17,7 @@ class QuizViewModel: ObservableObject {
     @Published var Level1Array: [Level1] = makeLevel1()
     {
         didSet {
-           
+            
             UserDefaults.standard.setEncoded(Level1Array, forKey: "Level1Array")
             
         }
@@ -26,7 +26,7 @@ class QuizViewModel: ObservableObject {
     @Published var Level2Array: [Level2] = makeLevel2()
     {
         didSet {
-           
+            
             UserDefaults.standard.setEncoded(Level2Array, forKey: "Level2Array")
             
         }
@@ -35,19 +35,21 @@ class QuizViewModel: ObservableObject {
     @Published var Level3Array: [Level3] = makeLevel3()
     {
         didSet {
-           
+            
             UserDefaults.standard.setEncoded(Level3Array, forKey: "Level3Array")
             
         }
     }
     
     init() {
-        
+
+                
         Level1Array = UserDefaults.standard.decodedObject([Level1].self, forKey: "Level1Array") ?? makeLevel1()
         Level2Array = UserDefaults.standard.decodedObject([Level2].self, forKey: "Level2Array") ?? makeLevel2()
         Level3Array = UserDefaults.standard.decodedObject([Level3].self, forKey: "Level3Array") ?? makeLevel3()
 
 
+        
         
     }
     
@@ -134,4 +136,26 @@ enum MyColor {
     var color: Color {
         return Color(uiColor)
     }
+}
+
+///UserDefaults 構造体保存　拡張
+extension UserDefaults {
+    ///保存
+  func setEncoded<T: Encodable>(_ value: T, forKey key: String) {
+    guard let data = try? JSONEncoder().encode(value) else {
+       print("Can not Encode to JSON.")
+       return
+    }
+    
+    set(data, forKey: key)
+  }
+
+    ///取り出し
+  func decodedObject<T: Decodable>(_ type: T.Type, forKey key: String) -> T? {
+    guard let data = data(forKey: key) else {
+      return nil
+    }
+    
+    return try? JSONDecoder().decode(type, from: data)
+  }
 }

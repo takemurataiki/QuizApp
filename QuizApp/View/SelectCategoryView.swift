@@ -36,14 +36,14 @@ struct SelectCategoryView: View {
                     List {
                         if quizVM.selectLevel == 1  {
                             Section(header: Text("生態")) {
-                                ForEach(quizVM.Level1Array[0...2].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             HStack {
                                                 Image(item.mark)
@@ -75,14 +75,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("暮らし")) {
-                                ForEach(quizVM.Level1Array[3...5].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             HStack {
                                                 Image(item.mark)
@@ -114,14 +114,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("歴史")) {
-                                ForEach(quizVM.Level1Array[6...8].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             HStack {
                                                 Image(item.mark)
@@ -153,14 +153,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("文化")) {
-                                ForEach(quizVM.Level1Array[9...11].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level1Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             HStack {
                                                 Image(item.mark)
@@ -201,7 +201,7 @@ struct SelectCategoryView: View {
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -229,14 +229,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("暮らし")) {
-                                ForEach(quizVM.Level2Array[3...5].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level2Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -264,14 +264,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("歴史")) {
-                                ForEach(quizVM.Level2Array[6...8].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level2Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -299,14 +299,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("文化")) {
-                                ForEach(quizVM.Level2Array[9...11].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level2Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -336,14 +336,14 @@ struct SelectCategoryView: View {
                         }
                         if quizVM.selectLevel == 3  {
                             Section(header: Text("生態")) {
-                                ForEach(quizVM.Level3Array[0...2].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level3Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -371,14 +371,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("暮らし")) {
-                                ForEach(quizVM.Level3Array[3...5].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level3Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -406,14 +406,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("歴史")) {
-                                ForEach(quizVM.Level3Array[6...8].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level3Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -441,14 +441,14 @@ struct SelectCategoryView: View {
                                 .listRowBackground(Color(red: 0.85, green: 0.7, blue: 1, opacity: 0.5).ignoresSafeArea(.all))
                             }
                             Section(header: Text("文化")) {
-                                ForEach(quizVM.Level3Array[8...11].indexed(), id: \.1.id) { index,item in
+                                ForEach(quizVM.Level3Array.indexed(), id: \.1.id) { index,item in
                                     Button(action: {
                                         quizVM.selectCategory = index
                                         levelButtonAction()
                                         
                                     }){
                                         HStack {
-                                            Text("\(item.title)\(index+1)")
+                                            Text("\(item.title)\(quizVM.selectLevel)-\(index+1)")
                                             Spacer()
                                             Image(item.mark)
                                                 .resizable()
@@ -479,27 +479,19 @@ struct SelectCategoryView: View {
                         
                     }///謎の空白を埋める
                     .listStyle(PlainListStyle())
+                    .onAppear(){
+                        print(quizVM.Level1Array)
+                    }
                 
                 Spacer()
+                
                 
                 AdView()
                     .frame(maxWidth:.infinity, maxHeight: 60.0)
                 
           
             }
-            .onAppear(){
-                //初期データ入れ込み
-                if quizVM.Level1Array.count <= 0 {
-                    if quizVM.selectLevel == 1 {
-                        quizVM.Level1Array = makeLevel1()
-                    }else if quizVM.selectLevel == 2 {
-                        quizVM.Level2Array = makeLevel2()
-                    }else if quizVM.selectLevel == 3 {
-                        quizVM.Level3Array = makeLevel3()
-                    }
-                }
-                    
-            }
+            
            
         }
         .navigationTitle("レベル\(quizVM.selectLevel)")

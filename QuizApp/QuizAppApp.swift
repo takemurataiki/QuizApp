@@ -15,7 +15,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Mobile Ads SDKを初期化する
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        // データ初期読み込み
+        UserDefaults.standard.register(defaults: ["Level1Array" : [Level1]()])
+        UserDefaults.standard.register(defaults: ["Level2Array" : [Level2]()])
+        UserDefaults.standard.register(defaults: ["Level3Array" : [Level3]()])
+                
         return true
+        
     }
 }
 

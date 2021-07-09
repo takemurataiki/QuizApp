@@ -68,21 +68,21 @@ extension Level2 {
 func makeLevel2() -> [Level2] {
     var dataArray:[Level2] = []
     //生態
-    let Ecology1 = Level2(score: 0, title: "生態2-", mark: "")
-    let Ecology2 = Level2(score: 0, title: "生態2-", mark: "")
-    let Ecology3 = Level2(score: 0, title: "生態2-", mark: "")
+    let Ecology1 = Level2(score: 0, title: "生態", mark: "")
+    let Ecology2 = Level2(score: 0, title: "生態", mark: "")
+    let Ecology3 = Level2(score: 0, title: "生態", mark: "")
     //暮らし
-    let living1 = Level2(score: 0, title: "暮らし1-", mark: "")
-    let living2 = Level2(score: 0, title: "暮らし1-", mark: "")
-    let living3 = Level2(score: 0, title: "暮らし1-", mark: "")
+    let living1 = Level2(score: 0, title: "暮らし", mark: "")
+    let living2 = Level2(score: 0, title: "暮らし", mark: "")
+    let living3 = Level2(score: 0, title: "暮らし", mark: "")
     //歴史
-    let hisitory1 = Level2(score: 0, title: "歴史1-", mark: "")
-    let hisitory2 = Level2(score: 0, title: "歴史1-", mark: "")
-    let hisitory3 = Level2(score: 0, title: "歴史1-", mark: "")
+    let hisitory1 = Level2(score: 0, title: "歴史", mark: "")
+    let hisitory2 = Level2(score: 0, title: "歴史", mark: "")
+    let hisitory3 = Level2(score: 0, title: "歴史", mark: "")
     //文化
-    let culture1 = Level2(score: 0, title: "文化1-", mark: "")
-    let culture2 = Level2(score: 0, title: "文化1-", mark: "")
-    let culture3 = Level2(score: 0, title: "文化1-", mark: "")
+    let culture1 = Level2(score: 0, title: "文化", mark: "")
+    let culture2 = Level2(score: 0, title: "文化", mark: "")
+    let culture3 = Level2(score: 0, title: "文化", mark: "")
 
     dataArray.append(Ecology1)
     dataArray.append(Ecology2)

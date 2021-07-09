@@ -64,48 +64,27 @@ extension Level1 {
 }
 
 
-///UserDefaults 構造体保存　拡張
-extension UserDefaults {
-    ///保存
-  func setEncoded<T: Encodable>(_ value: T, forKey key: String) {
-    guard let data = try? JSONEncoder().encode(value) else {
-       print("Can not Encode to JSON.")
-       return
-    }
-
-    set(data, forKey: key)
-  }
-
-    ///取り出し
-  func decodedObject<T: Decodable>(_ type: T.Type, forKey key: String) -> T? {
-    guard let data = data(forKey: key) else {
-      return nil
-    }
-
-    return try? JSONDecoder().decode(type, from: data)
-  }
-}
 
 
 
 func makeLevel1() -> [Level1] {
     var dataArray:[Level1] = []
     //生態
-    let Ecology1 = Level1(score: 0, title: "生態1-", mark: "")
-    let Ecology2 = Level1(score: 0, title: "生態1-", mark: "")
-    let Ecology3 = Level1(score: 0, title: "生態1-", mark: "")
+    let Ecology1 = Level1(score: 0, title: "生態", mark: "")
+    let Ecology2 = Level1(score: 0, title: "生態", mark: "")
+    let Ecology3 = Level1(score: 0, title: "生態", mark: "")
     //暮らし
-    let living1 = Level1(score: 0, title: "暮らし1-", mark: "")
-    let living2 = Level1(score: 0, title: "暮らし1-", mark: "")
-    let living3 = Level1(score: 0, title: "暮らし1-", mark: "")
+    let living1 = Level1(score: 0, title: "暮らし", mark: "")
+    let living2 = Level1(score: 0, title: "暮らし", mark: "")
+    let living3 = Level1(score: 0, title: "暮らし", mark: "")
     //歴史
-    let hisitory1 = Level1(score: 0, title: "歴史1-", mark: "")
-    let hisitory2 = Level1(score: 0, title: "歴史1-", mark: "")
-    let hisitory3 = Level1(score: 0, title: "歴史1-", mark: "")
+    let hisitory1 = Level1(score: 0, title: "歴史", mark: "")
+    let hisitory2 = Level1(score: 0, title: "歴史", mark: "")
+    let hisitory3 = Level1(score: 0, title: "歴史", mark: "")
     //文化
-    let culture1 = Level1(score: 0, title: "文化1-", mark: "")
-    let culture2 = Level1(score: 0, title: "文化1-", mark: "")
-    let culture3 = Level1(score: 0, title: "文化1-", mark: "")
+    let culture1 = Level1(score: 0, title: "文化", mark: "")
+    let culture2 = Level1(score: 0, title: "文化", mark: "")
+    let culture3 = Level1(score: 0, title: "文化", mark: "")
     
     
     dataArray.append(Ecology1)

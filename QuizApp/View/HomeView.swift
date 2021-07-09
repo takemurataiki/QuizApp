@@ -23,6 +23,7 @@ struct HomeView: View {
     func levelButtonAction() {
         quizVM.selectLevel = selectTag
         btnTap = true
+
     }
     
     var body: some View {
@@ -68,6 +69,7 @@ struct HomeView: View {
                             Button(action: {
                                 selectTag = 1
                                 levelButtonAction()
+                                
                             }, label: {
                                 Text("初級")
                                     .frame(maxWidth:.infinity, maxHeight: 80.0)
