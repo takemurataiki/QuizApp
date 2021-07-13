@@ -23,7 +23,22 @@ struct HomeView: View {
     func levelButtonAction() {
         quizVM.selectLevel = selectTag
         btnTap = true
-
+        
+    //初期データ入れ込み
+    if selectTag == 1 {
+        quizVM.Level1Array = makeLevel1()
+    }
+        
+        
+    if selectTag == 2 {
+        quizVM.Level2Array = makeLevel2()
+    }
+        
+        
+    if selectTag == 3 {
+        quizVM.Level3Array = makeLevel3()
+    }
+        
     }
     
     var body: some View {
@@ -47,16 +62,6 @@ struct HomeView: View {
                         .frame(maxWidth:.infinity, maxHeight:.infinity)
                         .padding(.all, 50.0)
                     
-                
-        //                        //スタートボタン
-        //                        NavigationLink(destination: SelectLevelView()){
-        //                            Text("スタート")
-        //                                .frame(maxWidth:.infinity, maxHeight: 80.0)
-        //                                .background(Color.white)
-        //                                .cornerRadius(30)
-        //                        }
-        //                        .isDetailLink(false)
-        //                        .padding(.all, 20.0)
                     VStack {
                         
                         
@@ -69,7 +74,6 @@ struct HomeView: View {
                             Button(action: {
                                 selectTag = 1
                                 levelButtonAction()
-                                
                             }, label: {
                                 Text("初級")
                                     .frame(maxWidth:.infinity, maxHeight: 80.0)

@@ -54,6 +54,7 @@ class QuizViewModel: ObservableObject {
     }
     
     
+    
     //csvファイルにすべてのデータを読み込む箱
     @Published var csvArray: [String] = []
    
