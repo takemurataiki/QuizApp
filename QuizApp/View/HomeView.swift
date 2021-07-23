@@ -13,9 +13,7 @@ struct HomeView: View {
     
     //ボタンをタップしたかどうか
     @State var btnTap = false
-    
-    
-    
+
     @EnvironmentObject var quizVM: QuizViewModel
     @Environment(\.presentationMode) var presentation
     
@@ -23,22 +21,7 @@ struct HomeView: View {
     func levelButtonAction() {
         quizVM.selectLevel = selectTag
         btnTap = true
-        
-    //初期データ入れ込み
-    if selectTag == 1 {
-        quizVM.Level1Array = makeLevel1()
-    }
-        
-        
-    if selectTag == 2 {
-        quizVM.Level2Array = makeLevel2()
-    }
-        
-        
-    if selectTag == 3 {
-        quizVM.Level3Array = makeLevel3()
-    }
-        
+  
     }
     
     var body: some View {
@@ -60,7 +43,7 @@ struct HomeView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth:.infinity, maxHeight:.infinity)
-                        .padding(.all, 50.0)
+                        .padding(.all, 30.0)
                     
                     VStack {
                         
@@ -75,42 +58,43 @@ struct HomeView: View {
                                 selectTag = 1
                                 levelButtonAction()
                             }, label: {
-                                Text("初級")
+                                Text("スタート")
                                     .frame(maxWidth:.infinity, maxHeight: 80.0)
                                     .background(Color.white)
                                     .cornerRadius(30)
                                     .padding(.vertical, 10.0)
                             
                             })
-                            
-                            Button(action: {
-                                selectTag = 2
-                                levelButtonAction()
-                                
-                            }, label: {
-                                Text("中級")
-                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
-                                    .background(Color.white)
-                                    .cornerRadius(30)
-                                    .padding(.vertical, 10.0)
-                            
-                            })
-                            
-                            Button(action: {
-                                selectTag = 3
-                            
-                                levelButtonAction()
-                            }, label: {
-                                Text("上級")
-                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
-                                    .background(Color.white)
-                                    .cornerRadius(30)
-                                    .padding(.vertical, 10.0)
-                            })
+//
+//                            Button(action: {
+//                                selectTag = 2
+//                                levelButtonAction()
+//
+//                            }, label: {
+//                                Text("中級")
+//                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
+//                                    .background(Color.white)
+//                                    .cornerRadius(30)
+//                                    .padding(.vertical, 10.0)
+//
+//                            })
+//
+//                            Button(action: {
+//                                selectTag = 3
+//
+//                                levelButtonAction()
+//                            }, label: {
+//                                Text("上級")
+//                                    .frame(maxWidth:.infinity, maxHeight: 80.0)
+//                                    .background(Color.white)
+//                                    .cornerRadius(30)
+//                                    .padding(.vertical, 10.0)
+//                            })
                         }
                         .frame(height: .infinity)
                         .padding(.all, 10.0)
-    
+                        
+                        Spacer()
                         NavigationLink(destination: SelectCategoryView(quiz: Question.default, category: Level1.default, isShow: $btnTap),isActive: $btnTap){
                             EmptyView()
                         }
@@ -122,6 +106,7 @@ struct HomeView: View {
                     AdView()
                         .frame(maxWidth:.infinity, maxHeight: 60.0)
                 }
+                
 
 
         }

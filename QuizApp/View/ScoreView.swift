@@ -19,13 +19,13 @@ struct ScoreView: View {
     @EnvironmentObject var quizVM: QuizViewModel
     
     
-    //シェア機能
-    func actionSheet() {
-        //アプリ共有
-            guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
-            let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
-            UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
-        }
+//    //シェア機能
+//    func actionSheet() {
+//        //アプリ共有
+//            guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+//            let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+//            UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+//        }
     
     var body: some View {
         ZStack {
@@ -63,28 +63,11 @@ struct ScoreView: View {
                     
                 }.padding(.all, 20.0)
                 
-                //シェアボタン
-                Button(action: actionSheet) {
-                    HStack {
-                        Image(systemName: "square.and.arrow.up")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 36, height: 36)
-                        Text("結果をシェアする")
-                            
-                            }
-                    .padding(.all, 30.0)
-                    .frame(width: 300.0, height: 70.0)
-                    .background(Color.white)
-                    .cornerRadius(25)
-                }.padding(.all, 20.0)
-                
                 Spacer()
                 
                 AdView()
                     .frame(maxWidth:.infinity, maxHeight: 60.0)
-                
-                
+             
             }
             .navigationBarHidden(true) 
         }

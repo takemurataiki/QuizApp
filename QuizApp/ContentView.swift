@@ -11,16 +11,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectTag = 0
     @EnvironmentObject var quizVM: QuizViewModel
     
     init(){
             //ナビゲーションバーの背景色の設定
         UINavigationBar.appearance().barTintColor = UIColor(hue: 0.75, saturation: 0.16, brightness: 1.0, alpha: 0.5)
         UITableView.appearance().backgroundColor = UIColor(hue: 0.75, saturation: 0.16, brightness: 1.0, alpha: 0.5)
-        
-        
-        
         }
 
     var body: some View {
@@ -30,27 +26,8 @@ struct ContentView: View {
                     HomeView()
                         
             }
-            
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                trailing:
-                    HStack {
-                        Button(action: {
-                           
-                            
-                        }){
-                            HStack {
-                                Image(systemName: "gearshape.fill")
-                                    .scaleEffect(1.5)
-                                    .frame(width: 60, height: 30,alignment: .trailing)
-                                
-                            }
-                        }
-                    }
-            )
-           
-            
-            
+            .navigationBarTitleDisplayMode(.inline) 
+  
         }
         
     }
@@ -58,6 +35,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        
         ContentView()
             .environmentObject(QuizViewModel())
     }

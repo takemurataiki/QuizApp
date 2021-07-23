@@ -64,38 +64,29 @@ extension Level2 {
 }
 func makeLevel2() -> [Level2] {
     var dataArray:[Level2] = []
-    //生態
-    let Ecology1 = Level2(score: 0, title: "生態①", mark: "")
-    let Ecology2 = Level2(score: 0, title: "生態②", mark: "")
-    let Ecology3 = Level2(score: 0, title: "生態③", mark: "")
-    //暮らし
-    let living1 = Level2(score: 0, title: "暮らし①", mark: "")
-    let living2 = Level2(score: 0, title: "暮らし②", mark: "")
-    let living3 = Level2(score: 0, title: "暮らし③", mark: "")
-    //歴史
-    let hisitory1 = Level2(score: 0, title: "歴史①", mark: "")
-    let hisitory2 = Level2(score: 0, title: "歴史①", mark: "")
-    let hisitory3 = Level2(score: 0, title: "歴史①", mark: "")
-    //文化
-    let culture1 = Level2(score: 0, title: "文化①", mark: "")
-    let culture2 = Level2(score: 0, title: "文化②", mark: "")
-    let culture3 = Level2(score: 0, title: "文化③", mark: "")
+    let Category11 = Level2(score: 0, title: "クイズ11", mark: "")
+    let Category12 = Level2(score: 0, title: "クイズ12", mark: "")
+    let Category13 = Level2(score: 0, title: "クイズ13", mark: "")
+    let Category14 = Level2(score: 0, title: "クイズ14", mark: "")
+    let Category15 = Level2(score: 0, title: "クイズ15", mark: "")
+    let Category16 = Level2(score: 0, title: "クイズ16", mark: "")
+    let Category17 = Level2(score: 0, title: "クイズ17", mark: "")
+    let Category18 = Level2(score: 0, title: "クイズ18", mark: "")
+    let Category19 = Level2(score: 0, title: "クイズ19", mark: "")
+    let Category20 = Level2(score: 0, title: "クイズ20", mark: "")
     
-    dataArray.append(Ecology1)
-    dataArray.append(Ecology2)
-    dataArray.append(Ecology3)
     
-    dataArray.append(living1)
-    dataArray.append(living2)
-    dataArray.append(living3)
     
-    dataArray.append(hisitory1)
-    dataArray.append(hisitory2)
-    dataArray.append(hisitory3)
-    
-    dataArray.append(culture1)
-    dataArray.append(culture2)
-    dataArray.append(culture3)
+    dataArray.append(Category11)
+    dataArray.append(Category12)
+    dataArray.append(Category13)
+    dataArray.append(Category14)
+    dataArray.append(Category15)
+    dataArray.append(Category16)
+    dataArray.append(Category17)
+    dataArray.append(Category18)
+    dataArray.append(Category19)
+    dataArray.append(Category20)
     
     return dataArray
     

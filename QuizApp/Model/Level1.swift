@@ -69,39 +69,32 @@ extension Level1 {
 
 func makeLevel1() -> [Level1] {
     var dataArray:[Level1] = []
-    //生態
-    let Ecology1 = Level1(score: 0, title: "生態①", mark: "")
-    let Ecology2 = Level1(score: 0, title: "生態②", mark: "")
-    let Ecology3 = Level1(score: 0, title: "生態③", mark: "")
-    //暮らし
-    let living1 = Level1(score: 0, title: "暮らし①", mark: "")
-    let living2 = Level1(score: 0, title: "暮らし②", mark: "")
-    let living3 = Level1(score: 0, title: "暮らし③", mark: "")
-    //歴史
-    let hisitory1 = Level1(score: 0, title: "歴史①", mark: "")
-    let hisitory2 = Level1(score: 0, title: "歴史②", mark: "")
-    let hisitory3 = Level1(score: 0, title: "歴史③", mark: "")
-    //文化
-    let culture1 = Level1(score: 0, title: "文化①", mark: "")
-    let culture2 = Level1(score: 0, title: "文化②", mark: "")
-    let culture3 = Level1(score: 0, title: "文化③", mark: "")
+    
+    let Category1 = Level1(score: 0, title: "クイズ1", mark: "")
+    let Category2 = Level1(score: 0, title: "クイズ2", mark: "")
+    let Category3 = Level1(score: 0, title: "クイズ3", mark: "")
+    let Category4 = Level1(score: 0, title: "クイズ4", mark: "")
+    let Category5 = Level1(score: 0, title: "クイズ5", mark: "")
+    let Category6 = Level1(score: 0, title: "クイズ6", mark: "")
+    let Category7 = Level1(score: 0, title: "クイズ7", mark: "")
+    let Category8 = Level1(score: 0, title: "クイズ8", mark: "")
+    let Category9 = Level1(score: 0, title: "クイズ9", mark: "")
+    let Category10 = Level1(score: 0, title: "クイズ10", mark: "")
     
     
-    dataArray.append(Ecology1)
-    dataArray.append(Ecology2)
-    dataArray.append(Ecology3)
     
-    dataArray.append(living1)
-    dataArray.append(living2)
-    dataArray.append(living3)
+    dataArray.append(Category1)
+    dataArray.append(Category2)
+    dataArray.append(Category3)
+    dataArray.append(Category4)
+    dataArray.append(Category5)
+    dataArray.append(Category6)
+    dataArray.append(Category7)
+    dataArray.append(Category8)
+    dataArray.append(Category9)
+    dataArray.append(Category10)
     
-    dataArray.append(hisitory1)
-    dataArray.append(hisitory2)
-    dataArray.append(hisitory3)
     
-    dataArray.append(culture1)
-    dataArray.append(culture2)
-    dataArray.append(culture3)
     
     
     return dataArray

@@ -13,7 +13,7 @@ class QuizViewModel: ObservableObject {
     //広告
     @Published var bannerView: GADBannerView!
     
-    
+    //初級
     @Published var Level1Array: [Level1] = makeLevel1()
     {
         didSet {
@@ -23,6 +23,7 @@ class QuizViewModel: ObservableObject {
         }
     }
     
+    //中級
     @Published var Level2Array: [Level2] = makeLevel2()
     {
         didSet {
@@ -32,6 +33,7 @@ class QuizViewModel: ObservableObject {
         }
     }
     
+    //上級
     @Published var Level3Array: [Level3] = makeLevel3()
     {
         didSet {
@@ -42,15 +44,9 @@ class QuizViewModel: ObservableObject {
     }
     
     init() {
-
-                
         Level1Array = UserDefaults.standard.decodedObject([Level1].self, forKey: "Level1Array") ?? makeLevel1()
         Level2Array = UserDefaults.standard.decodedObject([Level2].self, forKey: "Level2Array") ?? makeLevel2()
         Level3Array = UserDefaults.standard.decodedObject([Level3].self, forKey: "Level3Array") ?? makeLevel3()
-
-
-        
-        
     }
     
     
@@ -124,7 +120,7 @@ enum MyColor {
         }
     }
 
-    // ここで色を定義
+    // 色を定義
     var uiColor: UIColor {
         switch self {
         case .black:

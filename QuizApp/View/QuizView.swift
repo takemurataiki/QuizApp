@@ -35,10 +35,13 @@ struct QuizView: View {
     
     
     @State var flag:Bool = false
+    @State var question:Bool = false
+    
     
     
     //ボタンをタップした時のアクション
-    func btnAction() {
+     private func btnAction() {
+        question = true
         flag = true
         btnTapp = true
         //正解判定
@@ -62,38 +65,38 @@ struct QuizView: View {
                     category1.score = 5
                 }
             }
-            if quizVM.selectLevel == 2  {
-                
-                if category2.score < 5{
-                    //スコアカウント
-//                    category2.score += 1
-                    quizVM.score += 1
-                    category2.score = quizVM.score
-                    if category2.score == 5 {
-                    category2.mark = "肉球"
-
-                    }
-                }else {
-                    jugeColor = false
-                    category2.score = 5
-                }
-            }
-            if quizVM.selectLevel == 3  {
-                
-                if category3.score < 5{
-                    //スコアカウント
-//                    category3.score += 1
-                    quizVM.score += 1
-                    category3.score = quizVM.score
-                    if category3.score == 5 {
-                    category3.mark = "肉球"
-                    
-                    }
-                }else {
-                   
-                    category3.score = 5
-                }
-            }
+//            if quizVM.selectLevel == 2  {
+//                
+//                if category2.score < 5{
+//                    //スコアカウント
+////                    category2.score += 1
+//                    quizVM.score += 1
+//                    category2.score = quizVM.score
+//                    if category2.score == 5 {
+//                    category2.mark = "肉球"
+//
+//                    }
+//                }else {
+//                    jugeColor = false
+//                    category2.score = 5
+//                }
+//            }
+//            if quizVM.selectLevel == 3  {
+//                
+//                if category3.score < 5{
+//                    //スコアカウント
+////                    category3.score += 1
+//                    quizVM.score += 1
+//                    category3.score = quizVM.score
+//                    if category3.score == 5 {
+//                    category3.mark = "肉球"
+//                    
+//                    }
+//                }else {
+//                   
+//                    category3.score = 5
+//                }
+//            }
             
            
         } else {
@@ -127,6 +130,7 @@ struct QuizView: View {
             quiz.answerButton4 = quizVM.quizArray[5]
             quiz.explanation = quizVM.quizArray[6]
         } else {
+            question = true
             nextPage = true
         }
     }
@@ -137,7 +141,7 @@ struct QuizView: View {
             VStack {
                 ZStack {
                     if flag {
-                        ZStack {
+                       
                             
                         VStack {
                             
@@ -150,24 +154,8 @@ struct QuizView: View {
                                 Text(juge)
                                     .foregroundColor(jugeColor ? Color.red : Color.blue)
                              }
-                            .padding(.all, 30.0)
-                            
-                            //問題文
-                            VStack {
-                                HStack {
-                                    Text("【問題】")
-                                        .fontWeight(.bold)
-                                    Spacer()
-                                }
-                                Text(quiz.question)
-                                    
-                                    
-                            }
-                            .padding(.all, 5.0)
-                            .background(Color.white)
-                            .cornerRadius(25)
                             .padding(.all, 10.0)
-                            
+     
                             //答え
                             VStack {
                                 HStack {
@@ -175,10 +163,13 @@ struct QuizView: View {
                                         .fontWeight(.bold)
                                     
                                     Text("\(quiz.selectAnswer),")
+                                        
                                     Text(quizVM.quizArray[quiz.selectAnswer+1])
+                                        .lineLimit(nil)
                                     Spacer()
                                     
                                 }
+                                
                                 HStack {
                                     Text("【正解】")
                                         .fontWeight(.bold)
@@ -186,8 +177,10 @@ struct QuizView: View {
                                     HStack {
                                         Text("\(quizVM.quizArray[1]),")
                                             .fontWeight(.bold)
+                                            
                                         Text(quizVM.quizArray[1+Int(quizVM.quizArray[1])!])
                                             .fontWeight(.bold)
+                                            .lineLimit(nil)
                                     }
                                     .foregroundColor(jugeColor ? Color.black : Color.red)
                                      
@@ -211,12 +204,14 @@ struct QuizView: View {
                                     Spacer()
                                 }
                                 Text(quiz.explanation)
-                                    .padding(.all, 15.0)
+                                    .padding(.all, 5.0)
                             }
                             .padding(.all, 10.0)
                             .background(Color.white)
                             .cornerRadius(25)
                             .padding(.all, 10.0)
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
 
                                 
                                 
@@ -224,6 +219,7 @@ struct QuizView: View {
                             
                             //次の問題
                             Button(action: {
+                                question = false
                                 flag = false
                                 btnTapp = false
                                 nextQuiz()
@@ -245,11 +241,11 @@ struct QuizView: View {
                             Spacer()
                             
                         }
-                    }
+                    
                     
                     }
-                    if !flag {
-                        ZStack {
+                    if !question {
+                        
                             
                             VStack {
                                 VStack {
@@ -359,19 +355,61 @@ struct QuizView: View {
                             
                                 Spacer()
                             
-                                NavigationLink(destination: ScoreView(isShow: self.$isShow,
-                                                                      quiz: Question.default,
-                                                                      category1: $category1,
-                                                                      category2: $category2,
-                                                                      category3: $category3), isActive: $nextPage) {
-                                    EmptyView()
-                                }
-                                .isDetailLink(false)
+//                                NavigationLink(destination: ScoreView(isShow: self.$isShow,
+//                                                                      quiz: Question.default,
+//                                                                      category1: $category1,
+//                                                                      category2: $category2,
+//                                                                      category3: $category3), isActive: $nextPage) {
+//                                    EmptyView()
+//                                }
+//                                .isDetailLink(false)
                                 
                                
                             }
                             
-                        }
+                        
+                        
+                    }
+                    if nextPage {
+                        
+                            VStack {
+                               
+                                if quizVM.selectLevel == 1 {
+                                    Text("\(category1.score)問正解！")
+                                        .font(.largeTitle)
+                                        .fontWeight(.semibold)
+                                        .padding(.vertical, 40.0)
+                                }
+                                if quizVM.selectLevel == 2 {
+                                    Text("\(category2.score)問正解！")
+                                        .font(.largeTitle)
+                                        .fontWeight(.semibold)
+                                        .padding(.vertical, 40.0)
+                                }
+                                if quizVM.selectLevel == 3 {
+                                    Text("\(category3.score)問正解！")
+                                        .font(.largeTitle)
+                                        .fontWeight(.semibold)
+                                        .padding(.vertical, 40.0)
+                                }
+                                   
+                                Button(action: {
+                                    
+                                    presentation.wrappedValue.dismiss()
+                                   
+                                }){
+                                    Text("トップに戻る")
+                                        .padding(.all, 20.0)
+                                        .frame(width: 300.0, height: 70.0)
+                                        .background(Color.white)
+                                        .cornerRadius(25)
+                                    
+                                }.padding(.all, 20.0)
+                                
+                                Spacer()
+                                AdView().frame(maxWidth:.infinity, maxHeight: .infinity)
+                            }
+                            
                         
                     }
                     
@@ -383,8 +421,8 @@ struct QuizView: View {
                     
                     quizVM.quizCount = 0
                     //問題データ入れ込み
-    //                quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
-                    quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
+                    quizVM.csvArray = quizVM.loadCSV(fileName: "quiz\(quizVM.selectLevel)-\(quizVM.selectCategory+1)")
+//                    quizVM.csvArray = quizVM.loadCSV(fileName: "quiz1-1")
                     
                     //問題をランダムにする
                     quizVM.csvArray.shuffle()
@@ -409,8 +447,9 @@ struct QuizView: View {
                 AdView().frame(maxWidth:.infinity, maxHeight: 60.0)
                 
             }
-            .navigationTitle("Q\(quiz.quizNumberLabel)")
+            .navigationTitle(nextPage ? "" : "Q\(quiz.quizNumberLabel)") 
             .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(nextPage ? true : false)
             .navigationBarItems(
                 leading:
                     HStack {
